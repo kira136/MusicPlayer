@@ -18,7 +18,7 @@ namespace WpfApp1
     /// <summary>
     /// Interaction logic for DirectoryPage.xaml
     /// </summary>
-    public partial class DirectoryPage : Page
+    public partial class DirectoryPage : UserControl
     {
         public DirectoryPage()
         {

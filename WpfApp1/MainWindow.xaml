@@ -15,7 +15,7 @@
                 <ColumnDefinition Width="315"/>
             </Grid.ColumnDefinitions>
             <Border Background="LightGreen" Height="25" VerticalAlignment="Top"
-                    CornerRadius="10,10,0,0" MouseDown="Border_MouseDown" Grid.ColumnSpan="3"/>
+                    CornerRadius="10,10,0,0" MouseDown="Border_MouseDown" Grid.ColumnSpan="3" Margin="0,0,-1,0"/>
             <!-- nut close -->
             <Button
                 HorizontalAlignment="Right"
@@ -87,94 +87,93 @@
         />
 
             </Button>
-            <StackPanel Grid.Column="0" Background="LightGray" 
-                        Orientation="Vertical" Margin="0,25,0,0"
-                         
-                >
+            <Border Grid.Column="0" CornerRadius="0,0,0,10" Background="#F5F5F5" Margin="0,25,0,0">
+                <StackPanel Orientation="Vertical" >
+                    <Canvas VerticalAlignment="Center" >
+                        <!-- home-->
+                        <Button 
+        Click="HomeButton_Click"
+         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+         Style="{StaticResource MaterialDesignIconForegroundButton}"
+         ToolTip="MaterialDesignIconForegroundButton" Canvas.Left="5" Canvas.Top="220"
+    >
+                            <materialDesign:PackIcon x:Name="PlayButton"
+            Kind="Home"
+        />
+                        </Button>
+                        <TextBlock Text="Home" Canvas.Left="11" Canvas.Top="270" FontFamily="Roboto" FontWeight="Black"/>
 
-                <Canvas VerticalAlignment="Center" >
-                    <!-- home-->
-                    <Button 
-                        Click="HomeButton_Click"
-                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                         Style="{StaticResource MaterialDesignIconForegroundButton}"
-                         ToolTip="MaterialDesignIconForegroundButton" Canvas.Left="5" Canvas.Top="220"
-                    >
-                        <materialDesign:PackIcon x:Name="PlayButton"
-                            Kind="Home"
-                        />
-                    </Button>
-                    <TextBlock Text="Home" Canvas.Left="11" Canvas.Top="270" FontFamily="Roboto" FontWeight="Black"/>
+                    </Canvas >
+                    <Canvas >
+                        <!--Playlist-->
+                        <Button 
+        x:Name="PlaylistButton"
+      IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+      Style="{StaticResource MaterialDesignIconForegroundButton}"
+      ToolTip="MaterialDesignIconForegroundButton" Canvas.Left="5" Canvas.Top="300"
+     >
+                            <materialDesign:PackIcon
+            Kind="ListBox"
+        />
+                        </Button>
+                        <TextBlock Text="Playlist" Canvas.Left="8" Canvas.Top="350" FontFamily="Roboto" FontWeight="Black"/>
+                    </Canvas>
+                    <Canvas>
+                        <!--directory-->
+                        <Button 
+        x:Name="TrendingButton"
+        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+            Style="{StaticResource MaterialDesignIconForegroundButton}" 
+            ToolTip="MaterialDesignIconForegroundButton" Canvas.Left="5" Canvas.Top="140"
+            >
+                            <materialDesign:PackIcon Kind="SourceRepositories" />
+                        </Button>
+                        <TextBlock Text="Directory" Canvas.Left="2" Canvas.Top="190" FontFamily="Roboto" FontWeight="Black"/>
+                    </Canvas>
+                    <Canvas>
+                        <!-- Artist-->
+                        <Button 
+        x:Name="ArtistButton"
+        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+            Style="{StaticResource MaterialDesignIconForegroundButton}" 
+            ToolTip="MaterialDesignIconForegroundButton" Canvas.Left="5" Canvas.Top="380">
+                            <materialDesign:PackIcon Kind="FaceAgent" />
+                        </Button>
+                        <TextBlock Text="Artist" Canvas.Left="13" Canvas.Top="430" FontFamily="Roboto" FontWeight="Bold"></TextBlock>
+                    </Canvas>
 
-                </Canvas >
-                <Canvas >
-                    <!--Playlist-->
-                    <Button 
-                        x:Name="PlaylistButton"
-                      IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                      Style="{StaticResource MaterialDesignIconForegroundButton}"
-                      ToolTip="MaterialDesignIconForegroundButton" Canvas.Left="5" Canvas.Top="300"
-                     >
-                        <materialDesign:PackIcon
-                            Kind="ListBox"
-                        />
-                    </Button>
-                    <TextBlock Text="Playlist" Canvas.Left="8" Canvas.Top="350" FontFamily="Roboto" FontWeight="Black"/>
-                </Canvas>
-                <Canvas>
-                    <!--Trending-->
-                    <Button 
-                        x:Name="TrendingButton"
-                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                            Style="{StaticResource MaterialDesignIconForegroundButton}" 
-                            ToolTip="MaterialDesignIconForegroundButton" Canvas.Left="5" Canvas.Top="140"
-                            >
-                        <materialDesign:PackIcon Kind="SourceRepositories" />
-                    </Button>
-                    <TextBlock Text="Directory" Canvas.Left="2" Canvas.Top="190" FontFamily="Roboto" FontWeight="Black"/>
-                </Canvas>
-                <Canvas>
-                    <!-- Artist-->
-                    <Button 
-                        x:Name="ArtistButton"
-                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                            Style="{StaticResource MaterialDesignIconForegroundButton}" 
-                            ToolTip="MaterialDesignIconForegroundButton" Canvas.Left="5" Canvas.Top="380">
-                        <materialDesign:PackIcon Kind="FaceAgent" />
-                    </Button>
-                    <TextBlock Text="Artist" Canvas.Left="13" Canvas.Top="430" FontFamily="Roboto" FontWeight="Bold"></TextBlock>
-                </Canvas>
+                    <Canvas>
+                        <!--setting-->
+                        <Button 
+        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+            Style="{StaticResource MaterialDesignIconForegroundButton}" 
+            ToolTip="MaterialDesignIconForegroundButton" Canvas.Left="5" Canvas.Top="600"
+            Click="SettingButton_Click"
+            >
+                            <materialDesign:PackIcon x:Name="SettingButton" Kind="Settings"/>
 
-                <Canvas>
-                    <!--setting-->
-                    <Button 
-                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                            Style="{StaticResource MaterialDesignIconForegroundButton}" 
-                            ToolTip="MaterialDesignIconForegroundButton" Canvas.Left="5" Canvas.Top="600"
-                            Click="SettingButton_Click"
-                            >
-                        <materialDesign:PackIcon x:Name="SettingButton" Kind="Settings"/>
+                        </Button>
+                        <TextBlock Text="Settings" Canvas.Left="8" Canvas.Top="650" FontFamily="Roboto" FontWeight="Bold"></TextBlock>
+                        <Popup x:Name="SettingsPopup"
+           Placement="Right"
+           PlacementTarget="{Binding ElementName=SettingButton}"
+           StaysOpen="False"
+           HorizontalOffset="25"
+           VerticalOffset="-68">
+                            <Border Background="White"  BorderThickness="1"  Padding="10">
+                                <StackPanel>
+                                    <TextBlock Text="Settings" FontWeight="Bold" Margin="0,0,0,10" />
+                                    <CheckBox Content="Enable Notifications" Margin="0,5" />
+                                    <CheckBox Content="Dark Mode" Margin="0,5" />
+                                    <CheckBox Content="Auto Update" Margin="0,5" />
+                                </StackPanel>
+                            </Border>
+                        </Popup>
+                    </Canvas>
 
-                    </Button>
-                    <TextBlock Text="Settings" Canvas.Left="8" Canvas.Top="650" FontFamily="Roboto" FontWeight="Bold"></TextBlock>
-                    <Popup x:Name="SettingsPopup"
-                           Placement="Right"
-                           PlacementTarget="{Binding ElementName=SettingButton}"
-                           StaysOpen="False"
-                           HorizontalOffset="25"
-                           VerticalOffset="-68">
-                        <Border Background="White"  BorderThickness="1"  Padding="10">
-                            <StackPanel>
-                                <TextBlock Text="Settings" FontWeight="Bold" Margin="0,0,0,10" />
-                                <CheckBox Content="Enable Notifications" Margin="0,5" />
-                                <CheckBox Content="Dark Mode" Margin="0,5" />
-                                <CheckBox Content="Auto Update" Margin="0,5" />
-                            </StackPanel>
-                        </Border>
-                    </Popup>
-                </Canvas>
-            </StackPanel>
 
+                </StackPanel>
+            </Border>
             <Grid Grid.Column="1">
                 <ContentControl
                     x:Name="ContentControl" Margin="0,25,0,0"

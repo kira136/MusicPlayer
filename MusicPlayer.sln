@@ -5,6 +5,10 @@ VisualStudioVersion = 17.11.35431.28
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "WpfApp1\UI.csproj", "{CA74E667-766A-465C-A197-0FC47126CC85}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{38CE535C-85C7-414B-B90F-EEB1B7FDE1CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{5166EC9F-59E1-487E-8C64-F3AF135AB3E3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{CA74E667-766A-465C-A197-0FC47126CC85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA74E667-766A-465C-A197-0FC47126CC85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA74E667-766A-465C-A197-0FC47126CC85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38CE535C-85C7-414B-B90F-EEB1B7FDE1CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38CE535C-85C7-414B-B90F-EEB1B7FDE1CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38CE535C-85C7-414B-B90F-EEB1B7FDE1CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38CE535C-85C7-414B-B90F-EEB1B7FDE1CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5166EC9F-59E1-487E-8C64-F3AF135AB3E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5166EC9F-59E1-487E-8C64-F3AF135AB3E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5166EC9F-59E1-487E-8C64-F3AF135AB3E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5166EC9F-59E1-487E-8C64-F3AF135AB3E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
