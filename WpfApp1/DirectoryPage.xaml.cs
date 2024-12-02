@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DTO;
 
 namespace WpfApp1
 {
@@ -24,5 +25,16 @@ namespace WpfApp1
         {
             InitializeComponent();
         }
+
+        private void AddDirectory_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RemoveDirectory_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
+
 }

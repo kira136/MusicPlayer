@@ -4,21 +4,79 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WpfApp1"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="622" d:DesignWidth="619"
       Background="White"
+             
       >
 
-    <Border  >
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="65"/>
-                <ColumnDefinition Width="619*"/>
-                <ColumnDefinition Width="315*"/>
-            </Grid.ColumnDefinitions>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="14*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row ="0" Grid.RowSpan="2">
+            <Canvas>
+                <TextBlock Text="Directory Manager" 
+                           FontFamily="Roboto"
+                           FontSize="28" 
+                           Canvas.Left="30" Canvas.Top="26"                >
 
+                </TextBlock>
+                <Button 
+                    Click="AddDirectory_Click"
+                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                     Style="{StaticResource MaterialDesignIconForegroundButton}"
+                     ToolTip="MaterialDesignIconForegroundButton" Canvas.Left="467" Canvas.Top="19"
+                >
+                    <materialDesign:PackIcon x:Name="AddDirectoryButton"
+                        Kind="Add"
+                    />
 
+                </Button>
 
-        </Grid>
-    </Border>
+                <Button 
+                    Click="RemoveDirectory_Click"
+                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                     Style="{StaticResource MaterialDesignIconForegroundButton}"
+                     ToolTip="MaterialDesignIconForegroundButton" Canvas.Left="525" Canvas.Top="19"
+                >
+                    <materialDesign:PackIcon x:Name="RemoveDirectoryButton"
+                            Kind="Remove"
+                        />
+                </Button>
+            </Canvas>
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <Grid Height="544">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="271*"/>
+                    <ColumnDefinition Width="348*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                    <Canvas>
+                        <TextBlock Text="Directories" FontSize="23" HorizontalAlignment="Left" Canvas.Left="30" VerticalAlignment="Center"></TextBlock>
+                        <ListView
+                            x:Name="Directories_ListView" Height="460" Width="226" Canvas.Left="34" Canvas.Top="48" HorizontalAlignment="Left" VerticalAlignment="Center"  
+                        >
+
+                        </ListView>
+                    </Canvas>
+
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <Canvas>
+                        <TextBlock Text="Songs" FontFamily="Roboto" FontSize="23" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="10"/>
+                        <ListView 
+                            Height="460" Width="309" Canvas.Left="10" Canvas.Top="48" HorizontalAlignment="Left" VerticalAlignment="Center"
+                        >
+
+                        </ListView>
+                    </Canvas>
+                </StackPanel>
+
+            </Grid>
+        </StackPanel>
+    </Grid>
 </UserControl>

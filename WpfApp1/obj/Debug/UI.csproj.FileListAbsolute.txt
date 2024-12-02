@@ -74,3 +74,5 @@ F:\UIT-K18\workspace\MusicPlayer\WpfApp1\obj\Debug\UI.csproj.CoreCompileInputs.c
 F:\UIT-K18\workspace\MusicPlayer\WpfApp1\obj\Debug\UI.csproj.Up2Date
 F:\UIT-K18\workspace\MusicPlayer\WpfApp1\obj\Debug\WpfApp1.exe
 F:\UIT-K18\workspace\MusicPlayer\WpfApp1\obj\Debug\WpfApp1.pdb
+F:\UIT-K18\workspace\MusicPlayer\WpfApp1\bin\Debug\DTO.dll
+F:\UIT-K18\workspace\MusicPlayer\WpfApp1\bin\Debug\DTO.pdb

@@ -101,7 +101,7 @@
                                 Kind="Home"
                             />
                         </Button>
-                        <TextBlock Text="Home" Canvas.Left="11" Canvas.Top="70" FontFamily="Roboto" FontWeight="Black"/>
+                        <TextBlock Text="Home" Canvas.Left="11" Canvas.Top="70" FontFamily="Roboto" FontWeight="Bold"/>
 
                     </Canvas >
                     <Canvas>
@@ -115,7 +115,7 @@
                         >
                             <materialDesign:PackIcon Kind="SourceRepositories" />
                         </Button>
-                        <TextBlock Text="Directory" Canvas.Left="2" Canvas.Top="150" FontFamily="Roboto" FontWeight="Black"/>
+                        <TextBlock Text="Directory" Canvas.Left="2" Canvas.Top="150" FontFamily="Roboto" FontWeight="Bold"/>
                     </Canvas>
 
                     <Canvas>
@@ -132,7 +132,7 @@
                                 Kind="ListBox"
                             />
                             </Button>
-                            <TextBlock Text="Playlist" Canvas.Left="8" Canvas.Top="230" FontFamily="Roboto" FontWeight="Black"/>
+                            <TextBlock Text="Playlist" Canvas.Left="8" Canvas.Top="230" FontFamily="Roboto" FontWeight="Bold"/>
                         </Canvas>
 
                         <!--setting-->
@@ -177,7 +177,7 @@
 
                 </Grid.RowDefinitions>
                 <ContentControl
-                    x:Name="ContentControl" Grid.Row="1" Grid.ColumnSpan="2" Margin="0,0,0,10"
+                    x:Name="ContentControl" Grid.Row="1" Grid.ColumnSpan="2"
                 />
                 <Grid Grid.Row="0" Grid.ColumnSpan="2">
                     <TextBox materialDesign:HintAssist.Hint="Search"
@@ -185,6 +185,7 @@
                         Width="200" Height="30" Margin="419,32,0,2"
                         materialDesign:TextFieldAssist.UnderlineBrush="#A8E6CF"
                         materialDesign:HintAssist.Foreground="Black"
+                        FontFamily="Roboto"
                     />
                 </Grid>
             </Grid>

@@ -26,6 +26,7 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
+            ContentControl.Content = new HomePage();
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
