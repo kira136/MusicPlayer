@@ -58,13 +58,15 @@ F:\UIT-K18\workspace\MusicPlayer\WpfApp1\obj\Debug\UI.csproj.AssemblyReference.c
 F:\UIT-K18\workspace\MusicPlayer\WpfApp1\obj\Debug\MainWindow.baml
 F:\UIT-K18\workspace\MusicPlayer\WpfApp1\obj\Debug\App.baml
 F:\UIT-K18\workspace\MusicPlayer\WpfApp1\obj\Debug\DirectoryPage.g.cs
+F:\UIT-K18\workspace\MusicPlayer\WpfApp1\obj\Debug\HomePage.g.cs
 F:\UIT-K18\workspace\MusicPlayer\WpfApp1\obj\Debug\MainWindow.g.cs
-F:\UIT-K18\workspace\MusicPlayer\WpfApp1\obj\Debug\PlayPage.g.cs
+F:\UIT-K18\workspace\MusicPlayer\WpfApp1\obj\Debug\PlaylistPage.g.cs
 F:\UIT-K18\workspace\MusicPlayer\WpfApp1\obj\Debug\App.g.cs
 F:\UIT-K18\workspace\MusicPlayer\WpfApp1\obj\Debug\WpfApp1_MarkupCompile.cache
 F:\UIT-K18\workspace\MusicPlayer\WpfApp1\obj\Debug\WpfApp1_MarkupCompile.lref
 F:\UIT-K18\workspace\MusicPlayer\WpfApp1\obj\Debug\DirectoryPage.baml
-F:\UIT-K18\workspace\MusicPlayer\WpfApp1\obj\Debug\PlayPage.baml
+F:\UIT-K18\workspace\MusicPlayer\WpfApp1\obj\Debug\HomePage.baml
+F:\UIT-K18\workspace\MusicPlayer\WpfApp1\obj\Debug\PlaylistPage.baml
 F:\UIT-K18\workspace\MusicPlayer\WpfApp1\obj\Debug\WpfApp1.g.resources
 F:\UIT-K18\workspace\MusicPlayer\WpfApp1\obj\Debug\WpfApp1.Properties.Resources.resources
 F:\UIT-K18\workspace\MusicPlayer\WpfApp1\obj\Debug\UI.csproj.GenerateResource.cache

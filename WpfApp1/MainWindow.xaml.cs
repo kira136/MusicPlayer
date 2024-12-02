@@ -59,16 +59,27 @@ namespace WpfApp1
         private void HomeButton_Click(object sender, RoutedEventArgs e)
         {
             
-            ContentControl.Content = new PlayPage();
+            ContentControl.Content = new HomePage();
         }
-
-        private void MouseEnter(object sender, RoutedEventArgs e) {
-            
-        }
-
-        private void SliderSong_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        private void DirectoryButton_Click(object sender, RoutedEventArgs e)
         {
-
+            ContentControl.Content = new DirectoryPage();
         }
+
+        private void PlaylistButton_Click(object sender, RoutedEventArgs e)
+        {
+            ContentControl.Content = new PlaylistPage();
+        }
+        
+        //private void MouseEnter(object sender, RoutedEventArgs e) {
+            
+        //}
+
+        //private void SliderSong_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        //{
+
+        //}
+
+        
     }
 }

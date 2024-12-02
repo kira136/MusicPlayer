@@ -16,21 +16,13 @@ using System.Windows.Shapes;
 namespace WpfApp1
 {
     /// <summary>
-    /// Interaction logic for PlayPage.xaml
+    /// Interaction logic for PlaylistPage.xaml
     /// </summary>
-    public partial class PlayPage : UserControl
+    public partial class PlaylistPage : UserControl
     {
-        public PlayPage()
+        public PlaylistPage()
         {
             InitializeComponent();
         }
-
-        //private void Border_PlayPage_MouseDown(object sender, MouseButtonEventArgs e)
-        //{
-        //    if (e.ChangedButton == MouseButton.Left)
-        //    {
-        //        this
-        //    }
-        //}
     }
 }
