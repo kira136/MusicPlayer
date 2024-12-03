@@ -8,7 +8,8 @@ namespace DTO
 {
     public class SongDTO
     {
-        private string songThumbnail { get; set; }
+        private string songID { get; }
+        //private string songThumbnail { get; set; }
         private string songName { get; set; }
         private string songPath { get; set; }
         private DateTime lastAccessDate { get; set; }
