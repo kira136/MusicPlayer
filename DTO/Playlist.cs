@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BLL
-{
-    public class Class1
-    {
 
+namespace DTO
+{
+    public class Playlist
+    {
+        private List<Song> songs = new List<Song>();
     }
 }

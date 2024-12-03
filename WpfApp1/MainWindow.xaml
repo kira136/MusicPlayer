@@ -98,42 +98,40 @@
                              ToolTip="MaterialDesignIconForegroundButton" Canvas.Left="5" Canvas.Top="20"
                         >
                             <materialDesign:PackIcon x:Name="HomeButton"
-                                Kind="Home"
+                                Kind="HomeOutline"
                             />
                         </Button>
-                        <TextBlock Text="Home" Canvas.Left="11" Canvas.Top="70" FontFamily="Roboto" FontWeight="Bold"/>
 
                     </Canvas >
-                    <Canvas>
+                    <Canvas VerticalAlignment="Center">
                         <!--directory-->
                         <Button 
                             Click="DirectoryButton_Click"
                             x:Name="DirectoryButton"
                             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                                 Style="{StaticResource MaterialDesignIconForegroundButton}" 
-                                ToolTip="MaterialDesignIconForegroundButton" Canvas.Left="5" Canvas.Top="100"
+                                ToolTip="MaterialDesignIconForegroundButton" Canvas.Left="5" Canvas.Top="70" HorizontalAlignment="Center" VerticalAlignment="Top"
                         >
-                            <materialDesign:PackIcon Kind="SourceRepositories" />
+                            <materialDesign:PackIcon Kind="FolderOutline" />
                         </Button>
-                        <TextBlock Text="Directory" Canvas.Left="2" Canvas.Top="150" FontFamily="Roboto" FontWeight="Bold"/>
                     </Canvas>
-
-                    <Canvas>
-                        <Canvas >
-                            <!--Playlist-->
-                            <Button 
+                    <Canvas >
+                        <!--Playlist-->
+                        <Button 
                                 Click="PlaylistButton_Click"
                                 x:Name="PlaylistButton"
                               IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                               Style="{StaticResource MaterialDesignIconForegroundButton}"
-                              ToolTip="MaterialDesignIconForegroundButton" Canvas.Left="5" Canvas.Top="180"
+                              ToolTip="MaterialDesignIconForegroundButton" Canvas.Left="5" Canvas.Top="120" HorizontalAlignment="Left" VerticalAlignment="Center"
                             >
-                                <materialDesign:PackIcon
-                                Kind="ListBox"
+                            <materialDesign:PackIcon
+                                Kind="ListBoxOutline" VerticalAlignment="Center" HorizontalAlignment="Center"
                             />
-                            </Button>
-                            <TextBlock Text="Playlist" Canvas.Left="8" Canvas.Top="230" FontFamily="Roboto" FontWeight="Bold"/>
-                        </Canvas>
+                        </Button>
+                    </Canvas>
+
+                    <Canvas>
+
 
                         <!--setting-->
                         <Button 
@@ -142,10 +140,10 @@
                                 ToolTip="MaterialDesignIconForegroundButton" Canvas.Left="5" Canvas.Top="600"
                                 Click="SettingButton_Click"
                         >
-                            <materialDesign:PackIcon x:Name="SettingButton" Kind="Settings"/>
+                            <materialDesign:PackIcon x:Name="SettingButton" Kind="SettingsOutline"/>
 
                         </Button>
-                        <TextBlock Text="Settings" Canvas.Left="8" Canvas.Top="650" FontFamily="Roboto" FontWeight="Bold"></TextBlock>
+                        <TextBlock Text="Settings" Canvas.Left="8" Canvas.Top="650" FontFamily="Roboto" ></TextBlock>
                         <Popup x:Name="SettingsPopup"
                            Placement="Right"
                            PlacementTarget="{Binding ElementName=SettingButton}"
