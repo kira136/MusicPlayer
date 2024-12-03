@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    public class Song
+    public class SongDTO
     {
         private string songThumbnail { get; set; }
         private string songName { get; set; }
@@ -15,7 +15,7 @@ namespace DTO
         private int songSize { get; set; }
         private TimeSpan songDuration { get; set; }
 
-        public Song(string _songName, string _songPath, DateTime _lastAccessDate, int _songSize, TimeSpan _songDuration)
+        public SongDTO(string _songName, string _songPath, DateTime _lastAccessDate, int _songSize, TimeSpan _songDuration)
         {
             songName = _songName;
             songPath = _songPath;

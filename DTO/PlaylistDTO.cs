@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    public class Playlist
+    public class PlaylistDTO
     {
-        private List<Song> songs = new List<Song>();
+        private List<SongDTO> songs = new List<SongDTO>();
     }
 }
