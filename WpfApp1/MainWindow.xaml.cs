@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using MaterialDesignThemes;
 using MahApps;
 using MaterialDesignColors;
+using MaterialDesignThemes.Wpf;
 
 namespace WpfApp1
 {
@@ -27,6 +28,7 @@ namespace WpfApp1
         {
             InitializeComponent();
             ContentControl.Content = new HomePage();
+            PauseSong_Button.Visibility = Visibility.Collapsed;
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
@@ -71,9 +73,9 @@ namespace WpfApp1
         {
             ContentControl.Content = new PlaylistPage();
         }
-        
+
         //private void MouseEnter(object sender, RoutedEventArgs e) {
-            
+
         //}
 
         //private void SliderSong_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -81,6 +83,19 @@ namespace WpfApp1
 
         //}
 
-        
+        private bool isPlaying = false;
+
+        private void PlaySong_Button_Click(object sender, RoutedEventArgs e)
+        {
+            PlaySong_Button.Visibility = Visibility.Collapsed;
+            PauseSong_Button.Visibility = Visibility.Visible;
+            
+        }
+
+        private void PauseSong_Button_Click(object sender, RoutedEventArgs e)
+        {
+            PauseSong_Button.Visibility = Visibility.Collapsed;
+            PlaySong_Button.Visibility = Visibility.Visible;
+        }
     }
 }

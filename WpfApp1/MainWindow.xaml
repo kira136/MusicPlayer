@@ -7,6 +7,7 @@
         Title="MusicPlayer" Height="700" Width="1000"
         Style="{StaticResource MaterialDesignWindow}">
 
+
     <Border Background ="White" CornerRadius="10" >
         <Grid>
             <Grid.ColumnDefinitions>
@@ -137,19 +138,18 @@
                         <Button 
                             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                                 Style="{StaticResource MaterialDesignIconForegroundButton}" 
-                                ToolTip="MaterialDesignIconForegroundButton" Canvas.Left="5" Canvas.Top="600"
+                                ToolTip="MaterialDesignIconForegroundButton" Canvas.Left="5" Canvas.Top="620"
                                 Click="SettingButton_Click"
                         >
-                            <materialDesign:PackIcon x:Name="SettingButton" Kind="SettingsOutline"/>
+                            <materialDesign:PackIcon x:Name="SettingButton" Kind="SettingsOutline" HorizontalAlignment="Center"/>
 
                         </Button>
-                        <TextBlock Text="Settings" Canvas.Left="8" Canvas.Top="650" FontFamily="Roboto" ></TextBlock>
                         <Popup x:Name="SettingsPopup"
                            Placement="Right"
                            PlacementTarget="{Binding ElementName=SettingButton}"
                            StaysOpen="False"
                            HorizontalOffset="25"
-                           VerticalOffset="-68">
+                           VerticalOffset="-90">
                             <Border Background="White"  BorderThickness="1"  Padding="10">
                                 <StackPanel>
                                     <TextBlock Text="Settings" FontWeight="Bold" Margin="0,0,0,10" />
@@ -190,8 +190,8 @@
 
             <Grid Grid.Column="2" Margin="10,25,10,10">
                 <StackPanel Orientation="Vertical" Background="#F5F5F5">
-                    <!-- Khung 1 -->
-                    <Border CornerRadius="10" Padding="20" Margin="10" Height="443" Width="276">
+                    <!-- Frame 1 -->
+                    <Border x:Name="Frame1" CornerRadius="10" Padding="20" Margin="10" Height="443" Width="276">
                         <Border.Background>
                             <LinearGradientBrush x:Name="GradientBrush1" StartPoint="0,0" EndPoint="1,1">
                                 <GradientStop x:Name="GradientStop1" Color="#A8E6CF" Offset="0.0" />
@@ -227,13 +227,86 @@
                             </EventTrigger>
                         </Border.Triggers>
 
-                        <StackPanel Orientation="Horizontal" Margin="0,0,0,-10">
+                        <Grid Margin="-10,-10,-10,-10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="341*"/>
+                                <RowDefinition Height="37*"/>
+                                <RowDefinition Height="45*"/>
+                            </Grid.RowDefinitions>
 
-                        </StackPanel>
+                            <!--Song Progress Slider-->
+                            <Slider x:Name="SongProgress_Slider" Grid.Row="2" Margin="6,0,4,0" VerticalAlignment="Center" Height="20"/>
+                            <!--Play Button-->
+                            <Canvas>
+                                <Button x:Name="PlaySong_Button" 
+                                  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                  Style="{StaticResource MaterialDesignIconForegroundButton}"
+                                  ToolTip="MaterialDesignIconForegroundButton" Canvas.Left="104" Canvas.Top="340"
+                                  Click="PlaySong_Button_Click"    
+                            >
+                                    <materialDesign:PackIcon
+                                        Kind="PlayOutline"
+                                    />
+                                </Button>
+                            </Canvas>
+                            <!--Pause Song Button-->
+                            <Canvas>
+                                <Button x:Name="PauseSong_Button" 
+                                      IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                      Style="{StaticResource MaterialDesignIconForegroundButton}"
+                                      ToolTip="MaterialDesignIconForegroundButton" Canvas.Left="104" Canvas.Top="340"
+                                      Click ="PauseSong_Button_Click"    
+                                >
+                                    <materialDesign:PackIcon
+                                         Kind="Pause"
+                                    />
+                                </Button>
+                            </Canvas>
+                            <!--Next Button-->
+                            <Canvas>
+                                <Button x:Name="NextSong_Button" 
+                                      IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                      Style="{StaticResource MaterialDesignIconForegroundButton}"
+                                      ToolTip="MaterialDesignIconForegroundButton" Canvas.Left="154" Canvas.Top="340" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                >
+                                    <materialDesign:PackIcon
+                                        Kind="SkipNextOutline"
+                                    />
+                                </Button>
+                            </Canvas>
+                            <!--Previous Button-->
+                            <Canvas>
+                                <Button x:Name="PrevSong_Button" 
+                                      IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                      Style="{StaticResource MaterialDesignIconForegroundButton}"
+                                      ToolTip="MaterialDesignIconForegroundButton" Canvas.Left="54" Canvas.Top="340" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                >
+                                    <materialDesign:PackIcon
+                                        Kind="SkipPreviousOutline"
+                                    />
+                                </Button>
+                            </Canvas>
+                            <!--Replay Button-->
+                            <Canvas>
+                                <Button x:Name="ReplaySong_Button" 
+                                      IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                      Style="{StaticResource MaterialDesignIconForegroundButton}"
+                                      ToolTip="MaterialDesignIconForegroundButton" Canvas.Left="4" Canvas.Top="340" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                >
+                                    <materialDesign:PackIcon
+                                        Kind="Repeat"
+                                    />
+                                </Button>
+                            </Canvas>
+                            <Canvas/>
+
+
+                        </Grid>
+
                     </Border>
 
                     <!-- Khung 2 -->
-                    <Border CornerRadius="10" Padding="20" Margin="10" Height="182">
+                    <Border x:Name="Frame2" CornerRadius="10" Padding="20" Margin="10" Height="182">
                         <Border.Background>
                             <LinearGradientBrush x:Name="GradientBrush2" StartPoint="0,0" EndPoint="1,1">
                                 <GradientStop x:Name="GradientStop3" Color="#A8E6CF" Offset="0.0" />
