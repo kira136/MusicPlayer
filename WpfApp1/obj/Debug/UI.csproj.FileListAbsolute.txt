@@ -76,3 +76,8 @@ F:\UIT-K18\workspace\MusicPlayer\WpfApp1\obj\Debug\WpfApp1.exe
 F:\UIT-K18\workspace\MusicPlayer\WpfApp1\obj\Debug\WpfApp1.pdb
 F:\UIT-K18\workspace\MusicPlayer\WpfApp1\bin\Debug\DTO.dll
 F:\UIT-K18\workspace\MusicPlayer\WpfApp1\bin\Debug\DTO.pdb
+F:\UIT-K18\workspace\MusicPlayer\WpfApp1\bin\Debug\Ookii.Dialogs.Wpf.dll
+F:\UIT-K18\workspace\MusicPlayer\WpfApp1\bin\Debug\Ookii.Dialogs.Wpf.pdb
+F:\UIT-K18\workspace\MusicPlayer\WpfApp1\bin\Debug\Ookii.Dialogs.Wpf.xml
+F:\UIT-K18\workspace\MusicPlayer\WpfApp1\obj\Debug\FocusPage.g.cs
+F:\UIT-K18\workspace\MusicPlayer\WpfApp1\obj\Debug\FocusPage.baml

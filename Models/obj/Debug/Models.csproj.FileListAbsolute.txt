@@ -1,0 +1,6 @@
+F:\UIT-K18\workspace\MusicPlayer\DTO\bin\Debug\Models.dll
+F:\UIT-K18\workspace\MusicPlayer\DTO\bin\Debug\Models.pdb
+F:\UIT-K18\workspace\MusicPlayer\DTO\obj\Debug\Models.csproj.AssemblyReference.cache
+F:\UIT-K18\workspace\MusicPlayer\DTO\obj\Debug\Models.csproj.CoreCompileInputs.cache
+F:\UIT-K18\workspace\MusicPlayer\DTO\obj\Debug\Models.dll
+F:\UIT-K18\workspace\MusicPlayer\DTO\obj\Debug\Models.pdb

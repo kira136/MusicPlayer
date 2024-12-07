@@ -1,0 +1,6 @@
+F:\UIT-K18\workspace\MusicPlayer\DAL\bin\Debug\DAL.dll
+F:\UIT-K18\workspace\MusicPlayer\DAL\bin\Debug\DAL.pdb
+F:\UIT-K18\workspace\MusicPlayer\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+F:\UIT-K18\workspace\MusicPlayer\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+F:\UIT-K18\workspace\MusicPlayer\DAL\obj\Debug\DAL.dll
+F:\UIT-K18\workspace\MusicPlayer\DAL\obj\Debug\DAL.pdb

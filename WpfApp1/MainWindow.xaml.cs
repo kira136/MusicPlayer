@@ -97,5 +97,10 @@ namespace WpfApp1
             PauseSong_Button.Visibility = Visibility.Collapsed;
             PlaySong_Button.Visibility = Visibility.Visible;
         }
+
+        private void FocusButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

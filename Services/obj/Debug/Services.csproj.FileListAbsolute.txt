@@ -1,0 +1,9 @@
+F:\UIT-K18\workspace\MusicPlayer\BLL\bin\Debug\BLL.dll
+F:\UIT-K18\workspace\MusicPlayer\BLL\bin\Debug\BLL.pdb
+F:\UIT-K18\workspace\MusicPlayer\BLL\bin\Debug\Models.dll
+F:\UIT-K18\workspace\MusicPlayer\BLL\bin\Debug\Models.pdb
+F:\UIT-K18\workspace\MusicPlayer\BLL\obj\Debug\Services.csproj.AssemblyReference.cache
+F:\UIT-K18\workspace\MusicPlayer\BLL\obj\Debug\Services.csproj.CoreCompileInputs.cache
+F:\UIT-K18\workspace\MusicPlayer\BLL\obj\Debug\Services.csproj.Up2Date
+F:\UIT-K18\workspace\MusicPlayer\BLL\obj\Debug\BLL.dll
+F:\UIT-K18\workspace\MusicPlayer\BLL\obj\Debug\BLL.pdb

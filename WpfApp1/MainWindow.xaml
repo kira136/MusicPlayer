@@ -80,13 +80,7 @@
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Button.Template>
-                <TextBlock
-        
-        Foreground="White"
-        FontWeight="Bold"
-        FontSize="30"
-        />
-
+                
             </Button>
             <Border Grid.Column="0" CornerRadius="0,0,0,10" Background="#F5F5F5" Margin="0,25,0,0">
                 <StackPanel Orientation="Vertical" >
@@ -130,10 +124,23 @@
                             />
                         </Button>
                     </Canvas>
+                    <Canvas >
+                        <!--Playlist-->
+                        <Button 
+                            Click="FocusButton_Click"
+                            x:Name="FocusButton"
+                            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                            Style="{StaticResource MaterialDesignIconForegroundButton}"
+                            ToolTip="MaterialDesignIconForegroundButton" Canvas.Left="5" Canvas.Top="170" HorizontalAlignment="Left" VerticalAlignment="Center"
+                        >
+                            <materialDesign:PackIcon
+                                Kind="TargetArrow" VerticalAlignment="Center" HorizontalAlignment="Center"
+                            />
+                        </Button>
+                    </Canvas>
+
 
                     <Canvas>
-
-
                         <!--setting-->
                         <Button 
                             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"

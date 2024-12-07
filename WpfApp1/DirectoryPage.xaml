@@ -24,7 +24,7 @@
                            Canvas.Left="30" Canvas.Top="26"                >
 
                 </TextBlock>
-                <Button 
+                <Button x:Name="AddDirectory"
                     Click="AddDirectory_Click"
                      IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                      Style="{StaticResource MaterialDesignIconForegroundButton}"
@@ -51,15 +51,21 @@
         <StackPanel Grid.Row="1">
             <Grid Height="544">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="271*"/>
-                    <ColumnDefinition Width="348*"/>
+                    <ColumnDefinition Width="392*"/>
+                    <ColumnDefinition Width="227*"/>
                 </Grid.ColumnDefinitions>
                 <StackPanel Grid.Column="0">
                     <Canvas>
                         <TextBlock Text="Directories" FontSize="23" HorizontalAlignment="Left" Canvas.Left="30" VerticalAlignment="Center"></TextBlock>
-                        <ListView
-                            x:Name="Directories_ListView" Height="460" Width="226" Canvas.Left="34" Canvas.Top="48" HorizontalAlignment="Left" VerticalAlignment="Center"  
+                        <!--Directory ListView-->
+                        <ListView ItemsSource="{Binding Folder}"
+                            x:Name="Directories_ListView" Height="460" Width="285" Canvas.Left="34" Canvas.Top="48" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Calibri" FontSize="9.5"  
                         >
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn DisplayMemberBinding="{Binding FolderPath}" Width="100"/>
+                                </GridView>
+                            </ListView.View>
 
                         </ListView>
                     </Canvas>
@@ -67,9 +73,9 @@
                 </StackPanel>
                 <StackPanel Grid.Column="1">
                     <Canvas>
-                        <TextBlock Text="Songs" FontFamily="Roboto" FontSize="23" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="10"/>
+                        <TextBlock Text="Songs" FontFamily="Roboto" FontSize="23" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="15" Width="69"/>
                         <ListView 
-                            Height="460" Width="309" Canvas.Left="10" Canvas.Top="48" HorizontalAlignment="Left" VerticalAlignment="Center"
+                            Height="460" Width="157" Canvas.Left="14" Canvas.Top="45" HorizontalAlignment="Left" VerticalAlignment="Center"
                         >
 
                         </ListView>

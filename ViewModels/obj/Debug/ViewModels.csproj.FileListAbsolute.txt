@@ -1,0 +1,6 @@
+F:\UIT-K18\workspace\MusicPlayer\ViewModels\bin\Debug\ViewModels.dll
+F:\UIT-K18\workspace\MusicPlayer\ViewModels\bin\Debug\ViewModels.pdb
+F:\UIT-K18\workspace\MusicPlayer\ViewModels\obj\Debug\ViewModels.csproj.AssemblyReference.cache
+F:\UIT-K18\workspace\MusicPlayer\ViewModels\obj\Debug\ViewModels.csproj.CoreCompileInputs.cache
+F:\UIT-K18\workspace\MusicPlayer\ViewModels\obj\Debug\ViewModels.dll
+F:\UIT-K18\workspace\MusicPlayer\ViewModels\obj\Debug\ViewModels.pdb
