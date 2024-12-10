@@ -4,3 +4,9 @@ F:\UIT-K18\workspace\MusicPlayer\DTO\obj\Debug\Models.csproj.AssemblyReference.c
 F:\UIT-K18\workspace\MusicPlayer\DTO\obj\Debug\Models.csproj.CoreCompileInputs.cache
 F:\UIT-K18\workspace\MusicPlayer\DTO\obj\Debug\Models.dll
 F:\UIT-K18\workspace\MusicPlayer\DTO\obj\Debug\Models.pdb
+F:\UIT-K18\workspace\MusicPlayer\Models\bin\Debug\Models.dll
+F:\UIT-K18\workspace\MusicPlayer\Models\bin\Debug\Models.pdb
+F:\UIT-K18\workspace\MusicPlayer\Models\obj\Debug\Models.csproj.AssemblyReference.cache
+F:\UIT-K18\workspace\MusicPlayer\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+F:\UIT-K18\workspace\MusicPlayer\Models\obj\Debug\Models.dll
+F:\UIT-K18\workspace\MusicPlayer\Models\obj\Debug\Models.pdb
