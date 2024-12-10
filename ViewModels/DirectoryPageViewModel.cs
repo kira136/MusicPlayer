@@ -12,13 +12,16 @@ using System.Windows.Input;
 using System.Security.Permissions;
 using System.Windows;
 using System.Data;
-
+using Repositories;
 
 namespace ViewModels
 {
 
     public class DirectoryPageViewModel : INotifyPropertyChanged
     {
+        private readonly FolderRepo _folderRepo;
+        public ICommand BrowseFolderCommand { get; }
+        public ICommand RemoveDir { get; }
         private ObservableCollection<FolderItem> _folders;
         public ObservableCollection<FolderItem> Folders
         {
@@ -30,13 +33,18 @@ namespace ViewModels
             }
         }
 
-        public ICommand BrowseFolderCommand { get; }
+        
 
         public DirectoryPageViewModel()
         {
+            
+            string connectionString = "Server=IDEAPAD5PRO;Database=MusicPlayer;Integrated Security=True;TrustServerCertificate=True;";
+            _folderRepo = new FolderRepo(connectionString);
             Folders = new ObservableCollection<FolderItem>();
             Songs = new ObservableCollection<SongModel>();
             BrowseFolderCommand = new RelayCommand(OpenFolderBrowser);
+            RemoveDir = new RelayCommand(RemoveDirectory); // tiep tuc lam 
+            LoadFoldersFromData();
         }
 
         private FolderItem _selectedFolder;
@@ -47,7 +55,17 @@ namespace ViewModels
             {
                 _selectedFolder = value;
                 OnPropertyChanged();
-                LoadSongs(); // Load danh sách file MP3 khi thay đổi folder
+                LoadSongs(); 
+            }
+        }
+
+        private void LoadFoldersFromData()
+        {
+            var allFolders = _folderRepo.GetAllFolders();
+            Folders.Clear();
+            foreach(var folder in allFolders)
+            {
+                Folders.Add(folder);
             }
         }
 
@@ -65,6 +83,7 @@ namespace ViewModels
         }
         private void OpenFolderBrowser()
         {
+            
             using (var dialog = new System.Windows.Forms.FolderBrowserDialog())
             {
                 if(dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
@@ -73,6 +92,7 @@ namespace ViewModels
                     //Folders.Clear();
                     if(!Folders.Any(f => f.FolderPath == selectedPath))
                     {
+                        int folderID = _folderRepo.AddFolder(Path.GetFileName(selectedPath), selectedPath);
                         Folders.Add(new FolderItem
                         {
                             FolderPath = selectedPath,
@@ -83,14 +103,18 @@ namespace ViewModels
             }
         }
 
-
-        public void RemoveFolder(FolderItem folder)
+        private void RemoveDirectory()
         {
-            if (folder != null)
-            {
-                Folders.Remove(folder);
-            }
+            // tiep tuc hoan thanh
         }
+
+        //public void RemoveFolder(FolderItem folder)
+        //{
+        //    if (folder != null)
+        //    {
+        //        Folders.Remove(folder);
+        //    }
+        //}
 
         private void LoadSongs()
         {

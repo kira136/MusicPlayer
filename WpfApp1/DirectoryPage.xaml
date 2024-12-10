@@ -37,12 +37,12 @@
                 </Button>
 
                 <Button 
-                    
+                    x:Name="RemoveDirectoryButton"
                      IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                      Style="{StaticResource MaterialDesignIconForegroundButton}"
                      ToolTip="MaterialDesignIconForegroundButton" Canvas.Left="525" Canvas.Top="19"
                 >
-                    <materialDesign:PackIcon x:Name="RemoveDirectoryButton"
+                    <materialDesign:PackIcon 
                             Kind="Remove"
                         />
                 </Button>

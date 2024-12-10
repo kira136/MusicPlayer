@@ -83,7 +83,7 @@ namespace WpfApp1
 
         //}
 
-        private bool isPlaying = false;
+        //private bool isPlaying = false;
 
         private void PlaySong_Button_Click(object sender, RoutedEventArgs e)
         {

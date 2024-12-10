@@ -15,7 +15,7 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
             <Canvas>
-                <TextBlock Text="Focus" FontFamily="Roboto" FontSize="28"
+                <TextBlock Text="Focus Mode" FontFamily="Roboto" FontSize="28"
                            Canvas.Top="26" Canvas.Left="30"
                            >
                     
