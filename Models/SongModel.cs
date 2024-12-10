@@ -16,7 +16,7 @@ namespace Models
         private int songSize { get; set; }
         private TimeSpan songDuration { get; set; }
 
-        public SongModel(string _songName, string _songPath, DateTime _lastAccessDate, int _songSize, TimeSpan _songDuration)
+        public SongModel(string _songName = null, string _songPath = null, DateTime _lastAccessDate = default , int _songSize = 0, TimeSpan _songDuration = default)
         {
             songName = _songName;
             songPath = _songPath;
@@ -25,11 +25,11 @@ namespace Models
             songDuration = _songDuration;
         }
 
-        public SongModel(string _songName, string _songPath)
-        {
-            songName = _songName;
-            songPath = _songPath;
-        }
+        //public SongModel(string _songName, string _songPath)
+        //{
+        //    songName = _songName;
+        //    songPath = _songPath;
+        //}
 
         public override string ToString()
         {

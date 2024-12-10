@@ -100,7 +100,7 @@ namespace WpfApp1
 
         private void FocusButton_Click(object sender, RoutedEventArgs e)
         {
-
+            ContentControl.Content = new FocusPage();
         }
     }
 }

@@ -35,6 +35,7 @@ namespace ViewModels
         public DirectoryPageViewModel()
         {
             Folders = new ObservableCollection<FolderItem>();
+            Songs = new ObservableCollection<SongModel>();
             BrowseFolderCommand = new RelayCommand(OpenFolderBrowser);
         }
 
@@ -93,7 +94,19 @@ namespace ViewModels
 
         private void LoadSongs()
         {
-            
+            Songs.Clear();
+            if(SelectedFolder != null && Directory.Exists(SelectedFolder.FolderPath))
+            {
+                var mp3Files = Directory.GetFiles(SelectedFolder.FolderPath, "*.mp3");
+                foreach(var mp3File in mp3Files)
+                {
+                    Songs.Add(new SongModel
+                    {
+                        songName = Path.GetFileName(mp3File),
+                        songPath = mp3File
+                    });
+                }
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

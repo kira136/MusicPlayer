@@ -9,6 +9,18 @@
       Background="White"
     >
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="14*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <Canvas>
+                <TextBlock Text="Focus" FontFamily="Roboto" FontSize="28"
+                           Canvas.Top="26" Canvas.Left="30"
+                           >
+                    
+                </TextBlock>
+            </Canvas>
+        </StackPanel>
     </Grid>
 </UserControl>

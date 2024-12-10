@@ -23,26 +23,26 @@
                     
                 </TextBlock>
                 <Button x:Name="AddPlaylist_Button" 
-    Click="AddPlaylist_Button_Click"
-     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-     Style="{StaticResource MaterialDesignIconForegroundButton}"
-     ToolTip="MaterialDesignIconForegroundButton" Canvas.Left="467" Canvas.Top="19"
->
+                    Click="AddPlaylist_Button_Click"
+                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                     Style="{StaticResource MaterialDesignIconForegroundButton}"
+                     ToolTip="MaterialDesignIconForegroundButton" Canvas.Left="467" Canvas.Top="19"
+                >
                     <materialDesign:PackIcon x:Name="AddDirectoryButton"
-        Kind="Add"
-    />
+                    Kind="Add"
+                />
 
                 </Button>
 
                 <Button x:Name="RemovePlaylist_Button"
-    Click="RemovePlaylist_Button_Click"
-     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-     Style="{StaticResource MaterialDesignIconForegroundButton}"
-     ToolTip="MaterialDesignIconForegroundButton" Canvas.Left="525" Canvas.Top="19"
->
+                    Click="RemovePlaylist_Button_Click"
+                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                     Style="{StaticResource MaterialDesignIconForegroundButton}"
+                     ToolTip="MaterialDesignIconForegroundButton" Canvas.Left="525" Canvas.Top="19"
+                >
                     <materialDesign:PackIcon x:Name="RemoveDirectoryButton"
-            Kind="Remove"
-        />
+                    Kind="Remove"
+                />
                 </Button>
             </Canvas>
         </StackPanel>

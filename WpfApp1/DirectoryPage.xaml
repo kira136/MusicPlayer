@@ -59,6 +59,7 @@
                         <TextBlock Text="Directories" FontSize="23" HorizontalAlignment="Left" Canvas.Left="30" VerticalAlignment="Center"></TextBlock>
                         <!--Directory ListView-->
                         <ListView ItemsSource="{Binding Folders}"
+                                  SelectedItem="{Binding SelectedFolder}"
                             x:Name="Directories_ListView" Height="488" Width="353" Canvas.Left="34" Canvas.Top="48" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Calibri" FontSize="9"  
                         >
                             <ListView.View>
