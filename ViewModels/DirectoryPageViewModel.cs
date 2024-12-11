@@ -13,15 +13,17 @@ using System.Security.Permissions;
 using System.Windows;
 using System.Data;
 using Repositories;
+using System.Data.Common;
 
 namespace ViewModels
 {
 
     public class DirectoryPageViewModel : INotifyPropertyChanged
     {
+        private string connectionString;
         private readonly FolderRepo _folderRepo;
         public ICommand BrowseFolderCommand { get; }
-        public ICommand RemoveDir { get; }
+        public ICommand RemoveDirCommand { get; }
         private ObservableCollection<FolderItem> _folders;
         public ObservableCollection<FolderItem> Folders
         {
@@ -33,17 +35,17 @@ namespace ViewModels
             }
         }
 
-        
+
 
         public DirectoryPageViewModel()
         {
-            
-            string connectionString = "Server=IDEAPAD5PRO;Database=MusicPlayer;Integrated Security=True;TrustServerCertificate=True;";
+
+            connectionString = "Server=IDEAPAD5PRO;Database=MusicPlayer;Integrated Security=True;TrustServerCertificate=True;";
             _folderRepo = new FolderRepo(connectionString);
             Folders = new ObservableCollection<FolderItem>();
             Songs = new ObservableCollection<SongModel>();
             BrowseFolderCommand = new RelayCommand(OpenFolderBrowser);
-            RemoveDir = new RelayCommand(RemoveDirectory); // tiep tuc lam 
+            RemoveDirCommand = new RelayCommand(RemoveFolderFromData, CanRemoveFolder); // tiep tuc lam 
             LoadFoldersFromData();
         }
 
@@ -55,9 +57,10 @@ namespace ViewModels
             {
                 _selectedFolder = value;
                 OnPropertyChanged();
-                LoadSongs(); 
+                LoadSongs();
             }
         }
+
 
         private void LoadFoldersFromData()
         {
@@ -103,9 +106,23 @@ namespace ViewModels
             }
         }
 
-        private void RemoveDirectory()
+        private bool CanRemoveFolder() => SelectedFolder != null;
+
+        private void RemoveFolderFromData()
         {
             // tiep tuc hoan thanh
+            if (SelectedFolder == null) return;
+            try
+            {
+                var repo = new FolderRepo(connectionString);
+                repo.RemoveFolder(SelectedFolder);
+                Folders.Remove(SelectedFolder);
+            }
+            catch
+            {
+                throw new Exception("Loi xoa thu muc");
+            }
+
         }
 
         //public void RemoveFolder(FolderItem folder)

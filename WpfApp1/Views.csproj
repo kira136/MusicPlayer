@@ -125,6 +125,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NullToBoolConverters.cs" />
     <Compile Include="PlaylistPage.xaml.cs">
       <DependentUpon>PlaylistPage.xaml</DependentUpon>
     </Compile>

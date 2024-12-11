@@ -32,7 +32,7 @@ namespace Repositories
                 using (SqlConnection conn = new SqlConnection(_connectionString))
                 {
                     conn.Open();
-                    Console.WriteLine("Database connection successful.");
+                    //Console.WriteLine("Database connection successful.");
 
                     string query = @"INSERT INTO Folders (folderPath, folderName) 
                          OUTPUT INSERTED.folderID
@@ -85,6 +85,22 @@ namespace Repositories
                 }
             }
             return folders;
+        }
+
+        public void RemoveFolder(FolderItem selectedFolder)
+        {
+            var selectedPath = selectedFolder.FolderPath;
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                
+                string query = @"DELETE FROM Folders
+                               WHERE folderPath = @FolderPath
+                                ";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("FolderPath", selectedPath);
+                conn.Open();
+                int row = cmd.ExecuteNonQuery();
+            }
         }
 
     }

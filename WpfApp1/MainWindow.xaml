@@ -15,7 +15,7 @@
                 <ColumnDefinition Width="619"/>
                 <ColumnDefinition Width="315"/>
             </Grid.ColumnDefinitions>
-            <Border Background="LightGreen" Height="25" VerticalAlignment="Top"
+            <Border Background="#A8E6CF" Height="25" VerticalAlignment="Top"
                     CornerRadius="10,10,0,0" MouseDown="Border_MouseDown" Grid.ColumnSpan="3" Margin="0,0,-1,0"/>
             <!-- nut close -->
             <Button
