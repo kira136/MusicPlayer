@@ -140,7 +140,8 @@ namespace ViewModels
                 Playlists.Add(new PlaylistModel
                 {
                     playlistName = NewPlaylistName,
-                    playlistID = playlistID
+                    playlistID = playlistID,
+                    playlistPath = newDirectory
                 });
 
                 MessageBox.Show($"Playlist '{NewPlaylistName}' created successfully!", "Success", MessageBoxButtons.OK);

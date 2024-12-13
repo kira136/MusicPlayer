@@ -11,7 +11,7 @@ namespace Models
     {
         public int playlistID { get; set; }
         public string playlistName { get; set; }
-        
+        public string playlistPath { get; set; }
 
         public PlaylistModel()
         {

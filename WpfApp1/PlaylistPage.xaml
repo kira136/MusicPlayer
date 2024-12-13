@@ -77,7 +77,11 @@
                         </ListView.View>
 
                     </ListView>
-
+                    <!--Song in Playlist Listview-->
+                    <ListView x:Name="PlaylistSong_ListView"
+                        >
+                        
+                    </ListView>
                 </Canvas>
             </Grid>
 

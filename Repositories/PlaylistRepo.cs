@@ -18,16 +18,18 @@ namespace Repositories
 
         public int AddPlayList(string playlistName)
         {
+            string playlistPath = @"F:\UIT-K18\workspace\PlaylistManager\" + playlistName;
             int playlistID = 0 ;
             using(SqlConnection conn = new SqlConnection(_connectionString))
             {
-                string query = @"INSERT INTO Playlists(playlistName)
+                string query = @"INSERT INTO Playlists(playlistName, playlistPath)
                                 OUTPUT INSERTED.playlistID
-                                VALUES (@PlaylistName)
+                                VALUES (@PlaylistName, @PlaylistPath)
                                 ";
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@PlaylistName", playlistName);
+                    cmd.Parameters.AddWithValue("@PlayListPath", playlistPath);
                     conn.Open();
                     playlistID = (int)cmd.ExecuteScalar();
                 }
