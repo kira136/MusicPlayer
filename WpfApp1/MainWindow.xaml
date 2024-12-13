@@ -215,7 +215,12 @@
                             </Grid.RowDefinitions>
 
                             <!--Song Progress Slider-->
-                            <Slider x:Name="SongProgress_Slider" Grid.Row="2" Margin="6,0,4,0" VerticalAlignment="Center" Height="20"/>
+                            <Slider x:Name="SongProgress_Slider" 
+                                    Grid.Row="2" Margin="6,0,4,0" 
+                                    VerticalAlignment="Center" Height="20"
+                                    ValueChanged="SongProgress_Slider_ValueChanged"
+                                    
+                                    />
                             <!--Play Button-->
                             <Canvas>
                                 <Button x:Name="PlaySong_Button" 
@@ -297,8 +302,11 @@
                     </Border>
                 </StackPanel>
             </Grid>
-
-
+            <MediaElement x:Name="MediaPlayer"
+              LoadedBehavior="Manual"
+              UnloadedBehavior="Stop"
+              
+            />
         </Grid>
     </Border>
 </Window>

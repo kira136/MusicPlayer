@@ -26,6 +26,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -159,6 +160,10 @@
     <ProjectReference Include="..\Models\Models.csproj">
       <Project>{cfa5b760-a096-42b2-96e0-2e8ff2a9616c}</Project>
       <Name>Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repositories\Repositories.csproj">
+      <Project>{5166ec9f-59e1-487e-8c64-f3af135ab3e3}</Project>
+      <Name>Repositories</Name>
     </ProjectReference>
     <ProjectReference Include="..\ViewModels\ViewModels.csproj">
       <Project>{4a196a08-d54f-4c8c-9167-3608fc2e6ced}</Project>

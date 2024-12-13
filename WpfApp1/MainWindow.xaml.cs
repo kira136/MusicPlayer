@@ -16,6 +16,7 @@ using MaterialDesignThemes;
 using MahApps;
 using MaterialDesignColors;
 using MaterialDesignThemes.Wpf;
+using System.Windows.Threading;
 
 namespace WpfApp1
 {
@@ -24,12 +25,26 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
+        private DispatcherTimer _timer;
+        private bool _isDragging = false;
         public MainWindow()
         {
             InitializeComponent();
+            InitializeMediaTimer();
             ContentControl.Content = new HomePage();
+            var directoryPage = new DirectoryPage();
+            //directoryPage.SongSelected += OnSongSelected;
+            MediaPlayer.MediaOpened += (s, args) =>
+            {
+                if (MediaPlayer.NaturalDuration.HasTimeSpan)
+                {
+                    SongProgress_Slider.Maximum = MediaPlayer.NaturalDuration.TimeSpan.TotalSeconds;
+                }
+            };
+
             PauseSong_Button.Visibility = Visibility.Collapsed;
         }
+
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -41,6 +56,8 @@ namespace WpfApp1
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
+            MediaPlayer.Stop();
+            _timer.Stop();
             this.Close();
         }
 
@@ -89,18 +106,65 @@ namespace WpfApp1
         {
             PlaySong_Button.Visibility = Visibility.Collapsed;
             PauseSong_Button.Visibility = Visibility.Visible;
-            
+            MediaPlayer.Play();
+            _timer.Start();
         }
 
         private void PauseSong_Button_Click(object sender, RoutedEventArgs e)
         {
             PauseSong_Button.Visibility = Visibility.Collapsed;
             PlaySong_Button.Visibility = Visibility.Visible;
+            MediaPlayer.Stop();
+            _timer.Stop();
         }
 
         private void FocusButton_Click(object sender, RoutedEventArgs e)
         {
             ContentControl.Content = new FocusPage();
         }
+
+        
+
+
+        private void SongProgress_Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if (MediaPlayer.NaturalDuration.HasTimeSpan && SongProgress_Slider.IsMouseCaptureWithin)
+            {
+                MediaPlayer.Position = TimeSpan.FromSeconds(SongProgress_Slider.Value);
+            }
+        }
+
+
+        private void InitializeMediaTimer()
+        {
+            _timer = new DispatcherTimer
+            {
+                Interval = TimeSpan.FromMilliseconds(100)
+            };
+            _timer.Tick += UpdateSongProgress;
+        }
+
+        private void UpdateSongProgress(object sender, EventArgs e)
+        {
+            if (MediaPlayer.NaturalDuration.HasTimeSpan)
+            {
+                double totalSecond = MediaPlayer.NaturalDuration.TimeSpan.TotalSeconds;
+                double currentSecond = MediaPlayer.Position.TotalSeconds;
+                if(totalSecond > 0)
+                {
+                    SongProgress_Slider.Maximum = totalSecond;
+                    SongProgress_Slider.Value = currentSecond;
+                }
+                
+            }
+        }
+
+        public void PlaySong(string songPath)
+        {
+            MediaPlayer.Source = new Uri(songPath);
+            MediaPlayer.Play();
+            _timer.Start();
+        }
+
     }
 }

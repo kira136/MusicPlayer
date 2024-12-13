@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ViewModels;
 
 namespace WpfApp1
 {
@@ -23,6 +24,7 @@ namespace WpfApp1
         public PlaylistPage()
         {
             InitializeComponent();
+            DataContext = new PlaylistPageViewModel();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -30,14 +32,6 @@ namespace WpfApp1
 
         }
 
-        private void AddPlaylist_Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void RemovePlaylist_Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
     }
 }

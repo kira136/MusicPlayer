@@ -7,5 +7,5 @@ F:\UIT-K18\workspace\MusicPlayer\ViewModels\obj\Debug\ViewModels.pdb
 F:\UIT-K18\workspace\MusicPlayer\ViewModels\bin\Debug\Models.dll
 F:\UIT-K18\workspace\MusicPlayer\ViewModels\bin\Debug\Models.pdb
 F:\UIT-K18\workspace\MusicPlayer\ViewModels\obj\Debug\ViewModels.csproj.Up2Date
-F:\UIT-K18\workspace\MusicPlayer\ViewModels\bin\Debug\DAL.dll
-F:\UIT-K18\workspace\MusicPlayer\ViewModels\bin\Debug\DAL.pdb
+F:\UIT-K18\workspace\MusicPlayer\ViewModels\bin\Debug\Repositories.dll
+F:\UIT-K18\workspace\MusicPlayer\ViewModels\bin\Debug\Repositories.pdb

@@ -20,13 +20,25 @@
                 <TextBlock Text="Playlist" Canvas.Top="26" Canvas.Left="30"
                            FontFamily="Roboto" FontSize="28"
                            >
-                    
+
                 </TextBlock>
+
+                <TextBox 
+                    x:Name="NewPlaylistName_TextBox"
+                    materialDesign:HintAssist.Hint="New Playlist Name"
+                    materialDesign:HintAssist.IsFloating="True"
+                    Width="133" Height="30"
+                    materialDesign:TextFieldAssist.UnderlineBrush="#A8E6CF"
+                    materialDesign:HintAssist.Foreground="Black"
+                    FontFamily="Roboto" Canvas.Left="334" Canvas.Top="30" HorizontalAlignment="Left" VerticalAlignment="Top"
+                    Text="{Binding NewPlaylistName, UpdateSourceTrigger=PropertyChanged}"
+                />
                 <Button x:Name="AddPlaylist_Button" 
-                    Click="AddPlaylist_Button_Click"
+                    
                      IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                      Style="{StaticResource MaterialDesignIconForegroundButton}"
                      ToolTip="MaterialDesignIconForegroundButton" Canvas.Left="467" Canvas.Top="19"
+                     Command="{Binding AddPlaylistCommand}"
                 >
                     <materialDesign:PackIcon x:Name="AddDirectoryButton"
                     Kind="Add"
@@ -34,8 +46,9 @@
 
                 </Button>
 
+
                 <Button x:Name="RemovePlaylist_Button"
-                    Click="RemovePlaylist_Button_Click"
+                    
                      IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                      Style="{StaticResource MaterialDesignIconForegroundButton}"
                      ToolTip="MaterialDesignIconForegroundButton" Canvas.Left="525" Canvas.Top="19"
@@ -45,6 +58,29 @@
                 />
                 </Button>
             </Canvas>
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <Grid Height="540">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.5*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Canvas>
+                    <!--Playlist Listview-->
+                    <ListView Height="543" Width="265"
+                          ItemsSource="{Binding Playlists}" HorizontalAlignment="Left" VerticalAlignment="Center"
+                          >
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn DisplayMemberBinding="{Binding playlistName}"/>
+                            </GridView>
+                        </ListView.View>
+
+                    </ListView>
+
+                </Canvas>
+            </Grid>
+
         </StackPanel>
     </Grid>
 </UserControl>

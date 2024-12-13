@@ -17,6 +17,8 @@ using Microsoft.Win32;
 using Ookii.Dialogs.Wpf;
 using Models;
 using ViewModels;
+using System.Windows.Threading;
+using System.Windows.Resources;
 
 
 namespace WpfApp1
@@ -26,21 +28,28 @@ namespace WpfApp1
     /// </summary>
     public partial class DirectoryPage : UserControl
     {
+        public event Action<string> SongSelected;
         public DirectoryPage()
         {
             InitializeComponent();
             DataContext = new DirectoryPageViewModel();
         }
 
-        private void MediaPlayer_MediaOpened(object sender, RoutedEventArgs e)
-        {
+        
 
+        private void Songs_ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(Songs_ListView.SelectedItem is SongModel selectedSong)
+            {
+                SongSelected?.Invoke(selectedSong.songPath);
+                if(Application.Current.MainWindow is MainWindow mainWindow)
+                {
+                    mainWindow.PlaySong(selectedSong.songPath);
+                }
+            }
         }
 
-        private void MediaPlayer_MediaEnded(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
     }
 
 }

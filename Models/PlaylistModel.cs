@@ -9,27 +9,26 @@ namespace Models
 {
     public class PlaylistModel
     {
-        private int playlistID { get; set; }
-        private string playlistName { get; set; }
-        private List<SongModel> songs { get; set; }
+        public int playlistID { get; set; }
+        public string playlistName { get; set; }
+        
 
         public PlaylistModel()
         {
-            songs = new List<SongModel>();
+            
         }
-        public PlaylistModel(int _playlistID, string _playlistName, List<SongModel> _songs)
+        public PlaylistModel(int _playlistID, string _playlistName)
         {
             playlistID = _playlistID;
             playlistName = _playlistName;
-            songs = _songs ?? new List<SongModel>();
         }
 
         public void AddSong(SongModel song)
         {
-            if(song != null && !songs.Contains(song))
-            {
-                songs.Add(song);
-            }
+            //if(song != null && !songs.Contains(song))
+            //{
+            //    songs.Add(song);
+            //}
         }
     }
 }

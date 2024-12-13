@@ -4,12 +4,12 @@ F:\UIT-K18\workspace\MusicPlayer\DAL\obj\Debug\Repositories.csproj.AssemblyRefer
 F:\UIT-K18\workspace\MusicPlayer\DAL\obj\Debug\Repositories.csproj.CoreCompileInputs.cache
 F:\UIT-K18\workspace\MusicPlayer\DAL\obj\Debug\DAL.dll
 F:\UIT-K18\workspace\MusicPlayer\DAL\obj\Debug\DAL.pdb
-F:\UIT-K18\workspace\MusicPlayer\Repositories\bin\Debug\DAL.dll
-F:\UIT-K18\workspace\MusicPlayer\Repositories\bin\Debug\DAL.pdb
 F:\UIT-K18\workspace\MusicPlayer\Repositories\obj\Debug\Repositories.csproj.AssemblyReference.cache
 F:\UIT-K18\workspace\MusicPlayer\Repositories\obj\Debug\Repositories.csproj.CoreCompileInputs.cache
-F:\UIT-K18\workspace\MusicPlayer\Repositories\obj\Debug\DAL.dll
-F:\UIT-K18\workspace\MusicPlayer\Repositories\obj\Debug\DAL.pdb
 F:\UIT-K18\workspace\MusicPlayer\Repositories\bin\Debug\Models.dll
 F:\UIT-K18\workspace\MusicPlayer\Repositories\bin\Debug\Models.pdb
 F:\UIT-K18\workspace\MusicPlayer\Repositories\obj\Debug\Reposito.787EC4B2.Up2Date
+F:\UIT-K18\workspace\MusicPlayer\Repositories\bin\Debug\Repositories.dll
+F:\UIT-K18\workspace\MusicPlayer\Repositories\bin\Debug\Repositories.pdb
+F:\UIT-K18\workspace\MusicPlayer\Repositories\obj\Debug\Repositories.dll
+F:\UIT-K18\workspace\MusicPlayer\Repositories\obj\Debug\Repositories.pdb

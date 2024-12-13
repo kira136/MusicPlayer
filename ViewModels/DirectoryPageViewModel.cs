@@ -44,8 +44,8 @@ namespace ViewModels
             _folderRepo = new FolderRepo(connectionString);
             Folders = new ObservableCollection<FolderItem>();
             Songs = new ObservableCollection<SongModel>();
-            BrowseFolderCommand = new RelayCommand(OpenFolderBrowser);
-            RemoveDirCommand = new RelayCommand(RemoveFolderFromData, CanRemoveFolder); // tiep tuc lam 
+            BrowseFolderCommand = new DirectoryRelayCommand(OpenFolderBrowser);
+            RemoveDirCommand = new DirectoryRelayCommand(RemoveFolderFromData, CanRemoveFolder); // tiep tuc lam 
             LoadFoldersFromData();
         }
 
@@ -125,14 +125,6 @@ namespace ViewModels
 
         }
 
-        //public void RemoveFolder(FolderItem folder)
-        //{
-        //    if (folder != null)
-        //    {
-        //        Folders.Remove(folder);
-        //    }
-        //}
-
         private void LoadSongs()
         {
             Songs.Clear();
@@ -158,11 +150,11 @@ namespace ViewModels
         }
     }
 
-    public class RelayCommand : ICommand
+    public class DirectoryRelayCommand : ICommand
     {
         private readonly Action _execute;
         private readonly Func<bool> _canExecute;
-        public RelayCommand(Action execute, Func<bool> canExecute = null)
+        public DirectoryRelayCommand(Action execute, Func<bool> canExecute = null)
         {
             _execute = execute ?? throw new ArgumentNullException(nameof(execute));
             _canExecute = canExecute;

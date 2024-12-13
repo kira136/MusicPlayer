@@ -46,5 +46,5 @@ F:\UIT-K18\workspace\MusicPlayer\WpfApp1\obj\Debug\WpfApp1.exe
 F:\UIT-K18\workspace\MusicPlayer\WpfApp1\obj\Debug\WpfApp1.pdb
 F:\UIT-K18\workspace\MusicPlayer\WpfApp1\bin\Debug\ViewModels.dll
 F:\UIT-K18\workspace\MusicPlayer\WpfApp1\bin\Debug\ViewModels.pdb
-F:\UIT-K18\workspace\MusicPlayer\WpfApp1\bin\Debug\DAL.dll
-F:\UIT-K18\workspace\MusicPlayer\WpfApp1\bin\Debug\DAL.pdb
+F:\UIT-K18\workspace\MusicPlayer\WpfApp1\bin\Debug\Repositories.dll
+F:\UIT-K18\workspace\MusicPlayer\WpfApp1\bin\Debug\Repositories.pdb

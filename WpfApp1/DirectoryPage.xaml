@@ -83,13 +83,13 @@
                         <ListView ItemsSource="{Binding Songs}" 
                                   SelectedItem="{Binding SelectedSong, Mode=TwoWay}"
                                   x:Name="Songs_ListView" 
-                                  
-                                  Height="460" 
+                                  SelectionChanged="Songs_ListView_SelectionChanged"
+                                  Height="483" 
                                   Width="157" 
                                   Canvas.Left="14" 
                                   Canvas.Top="45" 
-                                  HorizontalAlignment="Left" 
-                                  VerticalAlignment="Center">
+                                  HorizontalAlignment="Center" 
+                                  VerticalAlignment="Top">
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn DisplayMemberBinding="{Binding songName}" Width="100"/>
@@ -102,12 +102,6 @@
 
             </Grid>
         </StackPanel>
-        <MediaElement
-            x:Name="MediaPlayer"
-            LoadedBehavior="Manual"
-            UnloadedBehavior="Stop"
-            MediaOpened="MediaPlayer_MediaOpened"
-            MediaEnded="MediaPlayer_MediaEnded"
-            />
+
     </Grid>
 </UserControl>
