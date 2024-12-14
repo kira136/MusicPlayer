@@ -41,13 +41,23 @@ namespace ViewModels
 
             _playlistRepo = new PlaylistRepo(connectionString);
             Playlists = new ObservableCollection<PlaylistModel>(_playlistRepo.GetAllPlaylist());
+            SelectedPlaylistSongs = new ObservableCollection<SongModel>();
 
             AddPlaylistCommand = new PlaylistRelayCommand(AddPlaylist);
             RemovePlaylistCommand = new PlaylistRelayCommand(RemovePlaylist, CanRemovePlaylist);
 
         }
 
-        
+        private ObservableCollection<SongModel> _selectedPlaylistSongs;
+        public ObservableCollection<SongModel> SelectedPlaylistSongs
+        {
+            get => _selectedPlaylistSongs;
+            set
+            {
+                _selectedPlaylistSongs = value;
+                OnPropertyChanged();
+            }
+        }
 
         private PlaylistModel _selectedPlaylist;
         public PlaylistModel SelectedPlaylist
@@ -57,8 +67,60 @@ namespace ViewModels
             {
                 _selectedPlaylist = value;
                 OnPropertyChanged();
+                LoadSongFromPlaylist();
             }
         }
+
+        private void LoadSongFromPlaylist()
+        {
+            // Kiểm tra nếu SelectedPlaylist không null và có đường dẫn hợp lệ
+            if (SelectedPlaylist == null || string.IsNullOrWhiteSpace(SelectedPlaylist.playlistPath))
+            {
+                MessageBox.Show("Playlist path is invalid or not selected.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                SelectedPlaylistSongs.Clear(); // Xóa danh sách bài hát nếu không có playlist hợp lệ
+                return;
+            }
+
+            // Kiểm tra nếu thư mục tồn tại
+            if (!Directory.Exists(SelectedPlaylist.playlistPath))
+            {
+                MessageBox.Show($"The directory '{SelectedPlaylist.playlistPath}' does not exist.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                SelectedPlaylistSongs.Clear();
+                return;
+            }
+
+            try
+            {
+                // Lấy danh sách tệp .mp3 từ thư mục playlist
+                var mp3files = Directory.GetFiles(SelectedPlaylist.playlistPath, "*.mp3");
+
+                // Xóa danh sách bài hát hiện tại
+                SelectedPlaylistSongs.Clear();
+
+                // Thêm từng bài hát vào danh sách
+                foreach (var file in mp3files)
+                {
+                    SelectedPlaylistSongs.Add(new SongModel
+                    {
+                        songName = Path.GetFileName(file),
+                        songPath = file
+                    });
+                }
+
+                // Hiển thị thông báo nếu không có bài hát nào
+                if (SelectedPlaylistSongs.Count == 0)
+                {
+                    MessageBox.Show("No MP3 files found in the selected playlist.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Thông báo lỗi nếu có lỗi khi tải tệp
+                MessageBox.Show($"Error loading songs: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -156,12 +218,40 @@ namespace ViewModels
 
         private void RemovePlaylist()
         {
-            if(SelectedPlaylist != null)
+            if (SelectedPlaylist != null)
             {
-                _playlistRepo.RemovePlaylist(SelectedPlaylist.playlistID);
-                Playlists.Remove(SelectedPlaylist);
+                var result = MessageBox.Show(
+                    $"Are you sure you want to delete the playlist '{SelectedPlaylist.playlistName}'?",
+                    "Confirm Delete",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        if (Directory.Exists(SelectedPlaylist.playlistPath))
+                        {
+                            Directory.Delete(SelectedPlaylist.playlistPath, true); // Xóa tất cả nội dung trong thư mục
+                        }
+                        _playlistRepo.RemovePlaylist(SelectedPlaylist.playlistID);
+                        Playlists.Remove(SelectedPlaylist);
+                        SelectedPlaylistSongs.Clear();
+                        SelectedPlaylist = null;
+                        //MessageBox.Show($"Playlist '{SelectedPlaylist.playlistName}' deleted successfully.", "Success", MessageBoxButtons.OK);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error deleting playlist: {ex.Message}", "Error", MessageBoxButtons.OK);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("No playlist selected to delete.", "Error", MessageBoxButtons.OK);
             }
         }
+
 
         private bool CanRemovePlaylist()
         {

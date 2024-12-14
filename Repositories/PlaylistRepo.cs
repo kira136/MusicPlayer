@@ -55,27 +55,29 @@ namespace Repositories
 
         public List<PlaylistModel> GetAllPlaylist()
         {
-            var AllPlaylist = new List<PlaylistModel>();
+            var allPlaylists = new List<PlaylistModel>();
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
-                string query = "SELECT playlistID, playlistName FROM Playlists";
+                string query = "SELECT playlistID, playlistName, playlistPath FROM Playlists";
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     conn.Open();
-                    using(SqlDataReader reader = cmd.ExecuteReader())
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            AllPlaylist.Add(new PlaylistModel
+                            allPlaylists.Add(new PlaylistModel
                             {
                                 playlistID = reader.GetInt32(0),
-                                playlistName = reader.GetString(1)
+                                playlistName = reader.GetString(1),
+                                playlistPath = reader.GetString(2) 
                             });
                         }
                     }
                 }
             }
-            return AllPlaylist;
+            return allPlaylists;
         }
+
     }
 }

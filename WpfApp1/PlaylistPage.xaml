@@ -52,7 +52,9 @@
                      IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                      Style="{StaticResource MaterialDesignIconForegroundButton}"
                      ToolTip="MaterialDesignIconForegroundButton" Canvas.Left="525" Canvas.Top="19"
-                >
+                     Command="{Binding RemovePlaylistCommand}"
+                       
+                        >
                     <materialDesign:PackIcon x:Name="RemoveDirectoryButton"
                     Kind="Remove"
                 />
@@ -67,9 +69,12 @@
                 </Grid.ColumnDefinitions>
                 <Canvas>
                     <!--Playlist Listview-->
-                    <ListView Height="543" Width="265"
+                    <ListView 
+                        x:Name="Playlists"
+                        Height="543" Width="265"
                           ItemsSource="{Binding Playlists}" HorizontalAlignment="Left" VerticalAlignment="Center"
-                          >
+                          SelectedItem="{Binding SelectedPlaylist, UpdateSourceTrigger=PropertyChanged}"
+                              >
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn DisplayMemberBinding="{Binding playlistName}"/>
@@ -80,6 +85,20 @@
                     <!--Song in Playlist Listview-->
                     <ListView x:Name="PlaylistSong_ListView"
                         >
+                        
+                    </ListView>
+                </Canvas>
+                <Canvas Grid.Column="1">
+                    <ListView x:Name="SongsInPlaylist_Listview"
+                              Height="543" HorizontalAlignment="Left" VerticalAlignment="Center" Width="344"
+                              ItemsSource="{Binding SelectedPlaylistSongs}"
+                              SelectedItem="{Binding SelectedSong, Mode=TwoWay}"
+                              >
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn DisplayMemberBinding="{Binding songName}"/>
+                            </GridView>
+                        </ListView.View>
                         
                     </ListView>
                 </Canvas>

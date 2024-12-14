@@ -21,14 +21,7 @@ namespace Models
         {
             playlistID = _playlistID;
             playlistName = _playlistName;
-        }
-
-        public void AddSong(SongModel song)
-        {
-            //if(song != null && !songs.Contains(song))
-            //{
-            //    songs.Add(song);
-            //}
+            playlistPath = @"F:\UIT-K18\workspace\PlaylistManager" + playlistName;
         }
     }
 }
