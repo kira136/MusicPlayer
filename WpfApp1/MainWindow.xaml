@@ -80,7 +80,7 @@
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Button.Template>
-                
+
             </Button>
             <Border Grid.Column="0" CornerRadius="0,0,0,10" Background="#F5F5F5" Margin="0,25,0,0">
                 <StackPanel Orientation="Vertical" >
@@ -124,20 +124,7 @@
                             />
                         </Button>
                     </Canvas>
-                    <Canvas >
-                        <!--Playlist-->
-                        <Button 
-                            Click="FocusButton_Click"
-                            x:Name="FocusButton"
-                            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                            Style="{StaticResource MaterialDesignIconForegroundButton}"
-                            ToolTip="MaterialDesignIconForegroundButton" Canvas.Left="5" Canvas.Top="170" HorizontalAlignment="Left" VerticalAlignment="Center"
-                        >
-                            <materialDesign:PackIcon
-                                Kind="TargetArrow" VerticalAlignment="Center" HorizontalAlignment="Center"
-                            />
-                        </Button>
-                    </Canvas>
+
 
 
                     <Canvas>
@@ -205,7 +192,7 @@
                                 <GradientStop x:Name="GradientStop2" Color="#F5F5F5" Offset="1.0" />
                             </LinearGradientBrush>
                         </Border.Background>
-                        
+
 
                         <Grid Margin="-10,-10,-10,-10">
                             <Grid.RowDefinitions>
@@ -273,7 +260,8 @@
                             </Canvas>
                             <!--Replay Button-->
                             <Canvas>
-                                <Button x:Name="ReplaySong_Button" 
+                                <Button x:Name="Replay_Button" 
+                                        Click="Replay_Button_Click"
                                       IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                                       Style="{StaticResource MaterialDesignIconForegroundButton}"
                                       ToolTip="MaterialDesignIconForegroundButton" Canvas.Left="4" Canvas.Top="340" HorizontalAlignment="Left" VerticalAlignment="Center"
@@ -283,7 +271,19 @@
                                     />
                                 </Button>
                             </Canvas>
-                            <Canvas/>
+                            <Canvas>
+                                <Button x:Name="Shuffle_Button" 
+                                        Click="Shuffle_Button_Click"
+                                      IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                      Style="{StaticResource MaterialDesignIconForegroundButton}"
+                                      ToolTip="MaterialDesignIconForegroundButton" Canvas.Left="205" Canvas.Top="342" HorizontalAlignment="Left" VerticalAlignment="Top"
+                                >
+                                    <materialDesign:PackIcon
+                                        Kind="Shuffle"
+                                    />
+                                </Button>
+                            </Canvas>
+
 
 
                         </Grid>
@@ -291,15 +291,21 @@
                     </Border>
 
                     <!-- Frame 2 -->
-                    <Border x:Name="Frame2" CornerRadius="10" Padding="20" Margin="10" Height="182">
+                    <Border x:Name="FocusFrame" CornerRadius="10" Padding="20" Margin="10" Height="182" 
+                        MouseLeftButtonDown="FocusFrame_MouseLeftButtonDown">
                         <Border.Background>
                             <LinearGradientBrush x:Name="GradientBrush2" StartPoint="0,0" EndPoint="1,1">
                                 <GradientStop x:Name="GradientStop3" Color="#A8E6CF" Offset="0.0" />
                                 <GradientStop x:Name="GradientStop4" Color="#F5F5F5" Offset="1.0" />
                             </LinearGradientBrush>
                         </Border.Background>
-                        
+                        <Canvas>
+                            <TextBlock x:Name="CountdownText" FontFamily="Roboto" Text="Focus" FontSize="20" 
+                               HorizontalAlignment="Left" VerticalAlignment="Center" 
+                               Foreground="Black" Canvas.Left="90" Canvas.Top="59" Width="75"/>
+                        </Canvas>
                     </Border>
+
                 </StackPanel>
             </Grid>
             <MediaElement x:Name="MediaPlayer"

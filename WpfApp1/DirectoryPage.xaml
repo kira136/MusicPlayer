@@ -81,7 +81,7 @@
                         <TextBlock Text="Songs" FontFamily="Roboto" FontSize="23" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="15" Width="69"/>
                         <!--Song ListView-->
                         <ListView ItemsSource="{Binding Songs}" 
-                                  SelectedItem="{Binding SelectedSong, Mode=TwoWay}"
+                                  SelectedItem="{Binding SongSelected, Mode=TwoWay}"
                                   x:Name="Songs_ListView" 
                                   SelectionChanged="Songs_ListView_SelectionChanged"
                                   Height="483" 

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Models;
+using Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,17 @@ namespace WpfApp1
     /// </summary>
     public partial class HomePage : UserControl
     {
+        private SongRepo _songrepo = new SongRepo("Server=IDEAPAD5PRO;Database=MusicPlayer;Integrated Security=True;TrustServerCertificate=True;");
         public HomePage()
         {
             InitializeComponent();
+            LoadRecentSongs();
+        }
+        
+        public void LoadRecentSongs()
+        {
+            List<SongModel> recentSongs = _songrepo.GetRecentSongs();
+            Recent_ListView.ItemsSource = recentSongs;
         }
     }
 }

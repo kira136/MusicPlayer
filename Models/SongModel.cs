@@ -12,9 +12,9 @@ namespace Models
         //private string songThumbnail { get; set; }
         public string songName { get; set; }
         public string songPath { get; set; }
-        private DateTime lastAccessDate { get; set; }
-        private int songSize { get; set; }
-        private TimeSpan songDuration { get; set; }
+        public DateTime lastAccessDate { get; set; }
+        public int songSize { get; set; }
+        public TimeSpan songDuration { get; set; }
 
         public SongModel(string _songName = null, string _songPath = null, DateTime _lastAccessDate = default , int _songSize = 0, TimeSpan _songDuration = default)
         {

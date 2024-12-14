@@ -32,10 +32,13 @@
                    FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top"
                 >
                 </TextBlock>
-                <ListView x:Name="Recent_ListView" Canvas.Top="330" HorizontalAlignment="Left" VerticalAlignment="Center" Width="238" Canvas.Left="30" Height="170">
+                <ListView x:Name="Recent_ListView" Canvas.Top="327" HorizontalAlignment="Left" VerticalAlignment="Center" Width="238" Height="170"
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                            ScrollViewer.VerticalScrollBarVisibility="Disabled" Canvas.Left="30"
+                          >
                     <ListView.View>
                         <GridView>
-
+                            <GridViewColumn DisplayMemberBinding="{Binding songName}"/>
                         </GridView>
                     </ListView.View>
                 </ListView>

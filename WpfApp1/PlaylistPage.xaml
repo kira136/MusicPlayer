@@ -92,7 +92,8 @@
                     <ListView x:Name="SongsInPlaylist_Listview"
                               Height="543" HorizontalAlignment="Left" VerticalAlignment="Center" Width="344"
                               ItemsSource="{Binding SelectedPlaylistSongs}"
-                              SelectedItem="{Binding SelectedSong, Mode=TwoWay}"
+                              SelectedItem="{Binding SongSelected, Mode=TwoWay}"
+                              SelectionChanged="SongsInPlaylist_Listview_SelectionChanged"
                               >
                         <ListView.View>
                             <GridView>

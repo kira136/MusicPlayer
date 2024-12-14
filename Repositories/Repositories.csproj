@@ -45,6 +45,7 @@
     <Compile Include="FolderRepo.cs" />
     <Compile Include="PlaylistRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SongRepo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Models\Models.csproj">

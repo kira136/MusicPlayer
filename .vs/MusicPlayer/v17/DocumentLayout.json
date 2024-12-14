@@ -7,24 +7,28 @@
       "RelativeMoniker": "D:0:0:{CA74E667-766A-465C-A197-0FC47126CC85}|WpfApp1\\Views.csproj|solutionrelative:wpfapp1\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CA74E667-766A-465C-A197-0FC47126CC85}|WpfApp1\\Views.csproj|f:\\uit-k18\\workspace\\musicplayer\\wpfapp1\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{CA74E667-766A-465C-A197-0FC47126CC85}|WpfApp1\\Views.csproj|f:\\uit-k18\\workspace\\musicplayer\\wpfapp1\\homepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{CA74E667-766A-465C-A197-0FC47126CC85}|WpfApp1\\Views.csproj|solutionrelative:wpfapp1\\homepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A196A08-D54F-4C8C-9167-3608FC2E6CED}|ViewModels\\ViewModels.csproj|F:\\UIT-K18\\workspace\\MusicPlayer\\viewmodels\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4A196A08-D54F-4C8C-9167-3608FC2E6CED}|ViewModels\\ViewModels.csproj|solutionrelative:viewmodels\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA74E667-766A-465C-A197-0FC47126CC85}|WpfApp1\\Views.csproj|F:\\UIT-K18\\workspace\\MusicPlayer\\wpfapp1\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{CA74E667-766A-465C-A197-0FC47126CC85}|WpfApp1\\Views.csproj|solutionrelative:wpfapp1\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CA74E667-766A-465C-A197-0FC47126CC85}|WpfApp1\\Views.csproj|F:\\UIT-K18\\workspace\\MusicPlayer\\wpfapp1\\playlistpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{CA74E667-766A-465C-A197-0FC47126CC85}|WpfApp1\\Views.csproj|solutionrelative:wpfapp1\\playlistpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CA74E667-766A-465C-A197-0FC47126CC85}|WpfApp1\\Views.csproj|f:\\uit-k18\\workspace\\musicplayer\\wpfapp1\\directorypage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{CA74E667-766A-465C-A197-0FC47126CC85}|WpfApp1\\Views.csproj|solutionrelative:wpfapp1\\directorypage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4A196A08-D54F-4C8C-9167-3608FC2E6CED}|ViewModels\\ViewModels.csproj|F:\\UIT-K18\\workspace\\MusicPlayer\\viewmodels\\directorypageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4A196A08-D54F-4C8C-9167-3608FC2E6CED}|ViewModels\\ViewModels.csproj|solutionrelative:viewmodels\\directorypageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4A196A08-D54F-4C8C-9167-3608FC2E6CED}|ViewModels\\ViewModels.csproj|f:\\uit-k18\\workspace\\musicplayer\\viewmodels\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4A196A08-D54F-4C8C-9167-3608FC2E6CED}|ViewModels\\ViewModels.csproj|solutionrelative:viewmodels\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4A196A08-D54F-4C8C-9167-3608FC2E6CED}|ViewModels\\ViewModels.csproj|F:\\UIT-K18\\workspace\\MusicPlayer\\viewmodels\\playlistpageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4A196A08-D54F-4C8C-9167-3608FC2E6CED}|ViewModels\\ViewModels.csproj|solutionrelative:viewmodels\\playlistpageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA74E667-766A-465C-A197-0FC47126CC85}|WpfApp1\\Views.csproj|F:\\UIT-K18\\workspace\\MusicPlayer\\wpfapp1\\directorypage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA74E667-766A-465C-A197-0FC47126CC85}|WpfApp1\\Views.csproj|solutionrelative:wpfapp1\\directorypage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,53 +54,63 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HomePage.xaml",
+              "DocumentMoniker": "F:\\UIT-K18\\workspace\\MusicPlayer\\WpfApp1\\HomePage.xaml",
+              "RelativeDocumentMoniker": "WpfApp1\\HomePage.xaml",
+              "ToolTip": "F:\\UIT-K18\\workspace\\MusicPlayer\\WpfApp1\\HomePage.xaml",
+              "RelativeToolTip": "WpfApp1\\HomePage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-14T17:16:44.896Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "F:\\UIT-K18\\workspace\\MusicPlayer\\WpfApp1\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "WpfApp1\\MainWindow.xaml.cs",
               "ToolTip": "F:\\UIT-K18\\workspace\\MusicPlayer\\WpfApp1\\MainWindow.xaml.cs",
               "RelativeToolTip": "WpfApp1\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAA7AAAAAAAAAA==",
+              "ViewState": "AgIAALQAAAAAAAAAAAAswCABAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-14T02:51:54.726Z",
+              "WhenOpened": "2024-12-14T09:24:38.733Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "MainViewModel.cs",
-              "DocumentMoniker": "F:\\UIT-K18\\workspace\\MusicPlayer\\ViewModels\\MainViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModels\\MainViewModel.cs",
-              "ToolTip": "F:\\UIT-K18\\workspace\\MusicPlayer\\ViewModels\\MainViewModel.cs",
-              "RelativeToolTip": "ViewModels\\MainViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-14T02:50:39.74Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "F:\\UIT-K18\\workspace\\MusicPlayer\\WpfApp1\\MainWindow.xaml",
               "RelativeDocumentMoniker": "WpfApp1\\MainWindow.xaml",
               "ToolTip": "F:\\UIT-K18\\workspace\\MusicPlayer\\WpfApp1\\MainWindow.xaml",
               "RelativeToolTip": "WpfApp1\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-12-14T02:50:24.393Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-14T06:54:54.236Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "DirectoryPage.xaml",
-              "DocumentMoniker": "F:\\UIT-K18\\workspace\\MusicPlayer\\WpfApp1\\DirectoryPage.xaml",
-              "RelativeDocumentMoniker": "WpfApp1\\DirectoryPage.xaml",
-              "ToolTip": "F:\\UIT-K18\\workspace\\MusicPlayer\\WpfApp1\\DirectoryPage.xaml",
-              "RelativeToolTip": "WpfApp1\\DirectoryPage.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-12-14T02:48:52.626Z",
-              "EditorCaption": ""
+              "DocumentIndex": 2,
+              "Title": "MainViewModel.cs",
+              "DocumentMoniker": "F:\\UIT-K18\\workspace\\MusicPlayer\\ViewModels\\MainViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\MainViewModel.cs",
+              "ToolTip": "F:\\UIT-K18\\workspace\\MusicPlayer\\ViewModels\\MainViewModel.cs",
+              "RelativeToolTip": "ViewModels\\MainViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-14T05:59:52.334Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DirectoryPage.xaml.cs",
+              "DocumentMoniker": "F:\\UIT-K18\\workspace\\MusicPlayer\\WpfApp1\\DirectoryPage.xaml.cs",
+              "RelativeDocumentMoniker": "WpfApp1\\DirectoryPage.xaml.cs",
+              "ToolTip": "F:\\UIT-K18\\workspace\\MusicPlayer\\WpfApp1\\DirectoryPage.xaml.cs",
+              "RelativeToolTip": "WpfApp1\\DirectoryPage.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-14T09:24:33.455Z"
             },
             {
               "$type": "Document",
@@ -106,22 +120,21 @@
               "RelativeDocumentMoniker": "ViewModels\\DirectoryPageViewModel.cs",
               "ToolTip": "F:\\UIT-K18\\workspace\\MusicPlayer\\ViewModels\\DirectoryPageViewModel.cs",
               "RelativeToolTip": "ViewModels\\DirectoryPageViewModel.cs",
-              "ViewState": "AgIAAHYAAAAAAAAAAAAMwDMAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAQwI0AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-13T16:54:23.128Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-14T09:16:21.496Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "PlaylistPage.xaml",
-              "DocumentMoniker": "F:\\UIT-K18\\workspace\\MusicPlayer\\WpfApp1\\PlaylistPage.xaml",
-              "RelativeDocumentMoniker": "WpfApp1\\PlaylistPage.xaml",
-              "ToolTip": "F:\\UIT-K18\\workspace\\MusicPlayer\\WpfApp1\\PlaylistPage.xaml",
-              "RelativeToolTip": "WpfApp1\\PlaylistPage.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-12-13T03:01:39.844Z",
-              "EditorCaption": ""
+              "DocumentIndex": 5,
+              "Title": "PlaylistPageViewModel.cs",
+              "DocumentMoniker": "F:\\UIT-K18\\workspace\\MusicPlayer\\ViewModels\\PlaylistPageViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\PlaylistPageViewModel.cs",
+              "ToolTip": "F:\\UIT-K18\\workspace\\MusicPlayer\\ViewModels\\PlaylistPageViewModel.cs",
+              "RelativeToolTip": "ViewModels\\PlaylistPageViewModel.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAIwCcAAAB/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-14T07:07:15.03Z"
             }
           ]
         }

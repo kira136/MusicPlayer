@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,7 @@ namespace WpfApp1
     /// </summary>
     public partial class PlaylistPage : UserControl
     {
+        public event Action<string> SongSelected;
         public PlaylistPage()
         {
             InitializeComponent();
@@ -32,6 +34,16 @@ namespace WpfApp1
 
         }
 
-        
+        private void SongsInPlaylist_Listview_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (SongsInPlaylist_Listview.SelectedItem is SongModel selectedSong)
+            {
+                SongSelected?.Invoke(selectedSong.songPath);
+                if (Application.Current.MainWindow is MainWindow mainWindow)
+                {
+                    mainWindow.PlaySong(selectedSong.songPath);
+                }
+            }
+        }
     }
 }

@@ -17,6 +17,11 @@ using MahApps;
 using MaterialDesignColors;
 using MaterialDesignThemes.Wpf;
 using System.Windows.Threading;
+using Repositories;
+using Models;
+using System.IO;
+using ViewModels;
+
 
 namespace WpfApp1
 {
@@ -25,15 +30,34 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
+        public MainViewModel ViewModel { get; }
+        private SongRepo _songRepo;
         private DispatcherTimer _timer;
         private bool _isDragging = false;
+        private DispatcherTimer _timerWatch; //  Thuộc tính của bộ đếm ngược
+        private int _remainingSeconds;
+        private bool _isCounting;
+        private string CurrentSongPath { get; set; }
+        private bool isShuffleEnable;
+        private bool isReplayEnable;
+        private List<SongModel> songQueue;
+        private int currentSongIndex;
+        private Random _random = new Random();
+
         public MainWindow()
         {
             InitializeComponent();
             InitializeMediaTimer();
+            ViewModel = new MainViewModel();
             ContentControl.Content = new HomePage();
             var directoryPage = new DirectoryPage();
+            _timerWatch = new DispatcherTimer();
+            _timerWatch.Interval = TimeSpan.FromSeconds(1);
+            _timerWatch.Tick += Timer_Tick;
+            _isCounting = false;
             //directoryPage.SongSelected += OnSongSelected;
+            
+            _songRepo = new SongRepo("Server=IDEAPAD5PRO;Database=MusicPlayer;Integrated Security=True;TrustServerCertificate=True;");
             MediaPlayer.MediaOpened += (s, args) =>
             {
                 if (MediaPlayer.NaturalDuration.HasTimeSpan)
@@ -42,7 +66,7 @@ namespace WpfApp1
                 }
             };
 
-            PauseSong_Button.Visibility = Visibility.Collapsed;
+            PlaySong_Button.Visibility = Visibility.Collapsed;
         }
 
 
@@ -57,7 +81,8 @@ namespace WpfApp1
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             MediaPlayer.Stop();
-            _timer.Stop();
+            if(_timer != null) _timer.Stop();
+            if(_timerWatch != null)_timerWatch.Stop();
             this.Close();
         }
 
@@ -106,24 +131,40 @@ namespace WpfApp1
         {
             PlaySong_Button.Visibility = Visibility.Collapsed;
             PauseSong_Button.Visibility = Visibility.Visible;
-            MediaPlayer.Play();
-            _timer.Start();
+            if (MediaPlayer.Source == null)
+            {
+                MediaPlayer.Source = new Uri(CurrentSongPath); 
+            }
+            if (MediaPlayer.Position > TimeSpan.Zero)
+            {
+                MediaPlayer.Play(); 
+            }
+            else
+            {
+                MediaPlayer.Play();
+            }
+            if (_timer != null)
+            {
+                _timer.Start();
+            }
         }
+
 
         private void PauseSong_Button_Click(object sender, RoutedEventArgs e)
         {
             PauseSong_Button.Visibility = Visibility.Collapsed;
             PlaySong_Button.Visibility = Visibility.Visible;
-            MediaPlayer.Stop();
-            _timer.Stop();
+            MediaPlayer.Pause();
+            if (_timer != null)
+            {
+                _timer.Stop();
+            }
         }
 
-        private void FocusButton_Click(object sender, RoutedEventArgs e)
-        {
-            ContentControl.Content = new FocusPage();
-        }
 
-        
+
+
+
 
 
         private void SongProgress_Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -159,12 +200,93 @@ namespace WpfApp1
             }
         }
 
-        public void PlaySong(string songPath)
+        private TimeSpan GetMediaDuration(string songPath)
         {
-            MediaPlayer.Source = new Uri(songPath);
-            MediaPlayer.Play();
-            _timer.Start();
+            return new TimeSpan(0);
         }
 
+
+        public void PlaySong(string _songPath)
+        {
+            if (CurrentSongPath != _songPath)
+            {
+                CurrentSongPath = _songPath;
+                MediaPlayer.Source = new Uri(_songPath);
+                MediaPlayer.Position = TimeSpan.Zero; 
+            }
+
+            MediaPlayer.Play();
+            if (_timer != null)
+            {
+                _timer.Start();
+            }
+            var song = new SongModel
+            {
+                songName = System.IO.Path.GetFileName(_songPath),
+                songPath = _songPath,
+                lastAccessDate = DateTime.Now,
+                songSize = (int)new FileInfo(_songPath).Length / 1024,
+                songDuration = GetMediaDuration(_songPath)
+            };
+            _songRepo.SaveSongToDatabase(song);
+        }
+        private void Replay()
+        {
+            
+        }
+
+        private void FocusFrame_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (!_isCounting)
+            {
+                StartCountdown(288000); 
+            }
+            else
+            {
+                StopCountdown(); 
+            }
+        }
+
+        private void StartCountdown(int seconds)
+        {
+            _remainingSeconds = seconds;
+            _isCounting = true;
+            var timeSpan = TimeSpan.FromSeconds(_remainingSeconds);
+            CountdownText.Text = timeSpan.ToString(@"hh\:mm\:ss");
+            _timerWatch.Start();
+        }
+
+        private void StopCountdown()
+        {
+            _isCounting = false;
+            _timerWatch.Stop();
+            CountdownText.Text = "Focus Area";
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            if (_remainingSeconds > 0)
+            {
+                _remainingSeconds--;
+                var timeSpan = TimeSpan.FromSeconds(_remainingSeconds);
+                CountdownText.Text = timeSpan.ToString(@"hh\:mm\:ss");
+            }
+            else
+            {
+                StopCountdown();
+                CountdownText.Text = "Done!";
+                MessageBox.Show("Countdown completed!", "Focus Area", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
+
+        private void Shuffle_Button_Click(object sender, RoutedEventArgs e)
+        {
+            isShuffleEnable = !isShuffleEnable;
+        }
+
+        private void Replay_Button_Click(object sender, RoutedEventArgs e)
+        {
+            isReplayEnable = !isReplayEnable;
+        }
     }
 }
