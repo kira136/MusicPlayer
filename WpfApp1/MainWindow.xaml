@@ -254,7 +254,7 @@
                             </Canvas>
                             <!--Replay Button-->
                             <Canvas>
-                                <Button x:Name="Replay_Button" 
+                                <ToggleButton x:Name="Replay_Button" 
                                         Click="Replay_Button_Click"
                                       IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                                       Style="{StaticResource MaterialDesignIconForegroundButton}"
@@ -263,10 +263,10 @@
                                     <materialDesign:PackIcon
                                         Kind="Repeat"
                                     />
-                                </Button>
+                                </ToggleButton>
                             </Canvas>
                             <Canvas>
-                                <Button x:Name="Shuffle_Button" 
+                                <ToggleButton x:Name="Shuffle_Button" 
                                         Click="Shuffle_Button_Click"
                                       IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                                       Style="{StaticResource MaterialDesignIconForegroundButton}"
@@ -275,7 +275,7 @@
                                     <materialDesign:PackIcon
                                         Kind="Shuffle"
                                     />
-                                </Button>
+                                </ToggleButton>
                             </Canvas>
                             <Canvas>
                                 <TextBlock HorizontalAlignment="Left" Height="36" VerticalAlignment="Center" Width="267" Canvas.Top="305"
@@ -312,7 +312,7 @@
             <MediaElement x:Name="MediaPlayer"
               LoadedBehavior="Manual"
               UnloadedBehavior="Stop"
-              
+              MediaElement.MediaEnded="MediaPlayer_MediaEnded"
             />
         </Grid>
     </Border>

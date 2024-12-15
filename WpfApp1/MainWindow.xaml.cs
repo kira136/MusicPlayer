@@ -156,6 +156,7 @@ namespace WpfApp1
 
         private void PlaySong_Button_Click(object sender, RoutedEventArgs e)
         {
+            
             PlaySong_Button.Visibility = Visibility.Collapsed;
             PauseSong_Button.Visibility = Visibility.Visible;
             if (MediaPlayer.Source == null)
@@ -179,6 +180,7 @@ namespace WpfApp1
 
         private void PauseSong_Button_Click(object sender, RoutedEventArgs e)
         {
+            if (CurrentSongPath == null) return;
             PauseSong_Button.Visibility = Visibility.Collapsed;
             PlaySong_Button.Visibility = Visibility.Visible;
             MediaPlayer.Pause();
@@ -309,6 +311,9 @@ namespace WpfApp1
 
         private void Shuffle_Button_Click(object sender, RoutedEventArgs e)
         {
+            isShuffleEnable = !isShuffleEnable;
+            if (isShuffleEnable) MessageBox.Show("Shuffle is on", "Info", MessageBoxButton.OK);
+            else MessageBox.Show("Shuffle is off", "Info", MessageBoxButton.OK);
             if (songQueue == null || !songQueue.Any())
             {
                 MessageBox.Show("No songs available to shuffle.", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -318,7 +323,7 @@ namespace WpfApp1
             var random = new Random();
             songQueue = songQueue.OrderBy(_ => random.Next()).ToList(); // Xáo trộn danh sách
             currentSongIndex = 0; // Reset lại bài hát đầu tiên
-            MessageBox.Show("Playlist shuffled!", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+            //MessageBox.Show("Playlist shuffled!", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void Replay_Button_Click(object sender, RoutedEventArgs e)
@@ -342,6 +347,11 @@ namespace WpfApp1
             PlayPreviousSong();
         }
 
+        private void UpdateCurrentlyPlayingSong(string songName)
+        {
+            CurrentSongName = songName;
+        }
+
         private void PlayNextSong()
         {
             if (songQueue == null || !songQueue.Any())
@@ -354,7 +364,10 @@ namespace WpfApp1
             currentSongIndex++; 
             if (currentSongIndex >= songQueue.Count)
                 currentSongIndex = 0;
-
+            var nextSong = songQueue[currentSongIndex];
+            MediaPlayer.Source = new Uri(nextSong.songPath);
+            MediaPlayer.Play();
+            UpdateCurrentlyPlayingSong(nextSong.songName);
             PlaySong(songQueue[currentSongIndex].songPath); 
         }
 
@@ -374,5 +387,18 @@ namespace WpfApp1
             PlaySong(songQueue[currentSongIndex].songPath); 
         }
 
+        private async void MediaPlayer_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            if (Shuffle_Button.IsChecked == true) // Nếu AutoPlay bật
+            {
+                //MessageBox.Show("Shuffle is on", "Info", MessageBoxButton.OK);
+                await Task.Delay(2000);
+                PlayNextSong();
+            }
+            else
+            {
+                //MessageBox.Show("Shuffle is off", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
     }
 }
