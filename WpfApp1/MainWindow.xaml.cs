@@ -21,6 +21,8 @@ using Repositories;
 using Models;
 using System.IO;
 using ViewModels;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 
 namespace WpfApp1
@@ -28,7 +30,7 @@ namespace WpfApp1
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, INotifyPropertyChanged
     {
         public MainViewModel ViewModel { get; }
         private SongRepo _songRepo;
@@ -47,6 +49,7 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = this;
             InitializeMediaTimer();
             ViewModel = new MainViewModel();
             ContentControl.Content = new HomePage();
@@ -69,6 +72,16 @@ namespace WpfApp1
             PlaySong_Button.Visibility = Visibility.Collapsed;
         }
 
+        private string _currentSongName;
+        public string CurrentSongName
+        {
+            get => _currentSongName;
+            set
+            {
+                _currentSongName = value;
+                OnPropertyChanged(); // Thông báo cập nhật
+            }
+        }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -113,7 +126,21 @@ namespace WpfApp1
 
         private void PlaylistButton_Click(object sender, RoutedEventArgs e)
         {
-            ContentControl.Content = new PlaylistPage();
+            var playlistPageViewModel = new PlaylistPageViewModel();
+            var playlistPage = new PlaylistPage
+            {
+                DataContext = playlistPageViewModel
+            };
+
+            ContentControl.Content = playlistPage;
+
+            // Lắng nghe sự kiện SelectedPlaylistChanged
+            playlistPageViewModel.SelectedPlaylistChanged += (songs) =>
+            {
+                // Gán danh sách bài hát vào songsQueue
+                songQueue = new List<SongModel>(songs);
+                currentSongIndex = 0; // Đặt bài hát đầu tiên làm mặc định
+            };
         }
 
         //private void MouseEnter(object sender, RoutedEventArgs e) {
@@ -220,6 +247,7 @@ namespace WpfApp1
             {
                 _timer.Start();
             }
+            CurrentSongName = System.IO.Path.GetFileNameWithoutExtension(_songPath);
             var song = new SongModel
             {
                 songName = System.IO.Path.GetFileName(_songPath),
@@ -281,12 +309,70 @@ namespace WpfApp1
 
         private void Shuffle_Button_Click(object sender, RoutedEventArgs e)
         {
-            isShuffleEnable = !isShuffleEnable;
+            if (songQueue == null || !songQueue.Any())
+            {
+                MessageBox.Show("No songs available to shuffle.", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
+
+            var random = new Random();
+            songQueue = songQueue.OrderBy(_ => random.Next()).ToList(); // Xáo trộn danh sách
+            currentSongIndex = 0; // Reset lại bài hát đầu tiên
+            MessageBox.Show("Playlist shuffled!", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void Replay_Button_Click(object sender, RoutedEventArgs e)
         {
             isReplayEnable = !isReplayEnable;
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        private void NextSong_Button_Click(object sender, RoutedEventArgs e)
+        {
+            PlayNextSong();
+        }
+
+        private void PrevSong_Button_Click(object sender, RoutedEventArgs e)
+        {
+            PlayPreviousSong();
+        }
+
+        private void PlayNextSong()
+        {
+            if (songQueue == null || !songQueue.Any())
+            {
+                MessageBox.Show("The selected playlist does not contain any songs.", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
+
+
+            currentSongIndex++; 
+            if (currentSongIndex >= songQueue.Count)
+                currentSongIndex = 0;
+
+            PlaySong(songQueue[currentSongIndex].songPath); 
+        }
+
+        private void PlayPreviousSong()
+        {
+            if (songQueue == null || !songQueue.Any())
+            {
+                MessageBox.Show("The selected playlist does not contain any songs.", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
+
+
+            currentSongIndex--; 
+            if (currentSongIndex < 0)
+                currentSongIndex = songQueue.Count - 1;
+
+            PlaySong(songQueue[currentSongIndex].songPath); 
+        }
+
     }
 }

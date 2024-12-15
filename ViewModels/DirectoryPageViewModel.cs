@@ -24,6 +24,7 @@ namespace ViewModels
         private readonly FolderRepo _folderRepo;
         public ICommand BrowseFolderCommand { get; }
         public ICommand RemoveDirCommand { get; }
+        
         private ObservableCollection<FolderItem> _folders;
         public ObservableCollection<FolderItem> Folders
         {

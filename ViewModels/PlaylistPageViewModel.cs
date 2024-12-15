@@ -24,6 +24,7 @@ namespace ViewModels
     {
         private string connectionString;
         private PlaylistRepo _playlistRepo;
+        public event Action<ObservableCollection<SongModel>> SelectedPlaylistChanged;
         private ObservableCollection<PlaylistModel> _playlists;
         public ObservableCollection<PlaylistModel> Playlists
         {
@@ -37,7 +38,7 @@ namespace ViewModels
 
         public PlaylistPageViewModel()
         {
-            connectionString = "Server=IDEAPAD5PRO;Database=MusicPlayer;Integrated Security=True;TrustServerCertificate=True;";
+            connectionString = "Server=IDEAPAD5PRO;Database=MusicPlayer;Integrated Security=True;TrustServerCertificate=True;";            
 
             _playlistRepo = new PlaylistRepo(connectionString);
             Playlists = new ObservableCollection<PlaylistModel>(_playlistRepo.GetAllPlaylist());
@@ -68,8 +69,11 @@ namespace ViewModels
                 _selectedPlaylist = value;
                 OnPropertyChanged();
                 LoadSongFromPlaylist();
+                SelectedPlaylistChanged?.Invoke(SelectedPlaylistSongs);
             }
         }
+
+        
 
         private void LoadSongFromPlaylist()
         {
